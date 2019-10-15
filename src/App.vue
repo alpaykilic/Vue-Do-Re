@@ -6,6 +6,7 @@
     <MarkalarContent />
     <Slick />
     <TabNavSection />
+    <Banner />
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import Slider from './components/Slider.vue'
 import MarkalarContent from './components/MarkalarContent.vue'
 import Slick from './components/Slick.vue'
 import TabNavSection from './components/TabNavSection.vue'
+import Banner from './components/Banner.vue'
 
 
 export default {
@@ -26,7 +28,8 @@ export default {
     Slider,
     MarkalarContent,
     Slick,
-    TabNavSection
+    TabNavSection,
+    Banner
   }
 }
 </script>
