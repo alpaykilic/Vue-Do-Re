@@ -8,6 +8,7 @@
     <TabNavSection />
     <Banner />
     <IconSection />
+    <Footer />
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import Slick from './components/Slick.vue'
 import TabNavSection from './components/TabNavSection.vue'
 import Banner from './components/Banner.vue'
 import IconSection from './components/IconSection.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   name: 'app',
@@ -31,7 +33,8 @@ export default {
     Slick,
     TabNavSection,
     Banner,
-    IconSection
+    IconSection,
+    Footer
   }
 }
 </script>
