@@ -2,7 +2,8 @@
   <div id="app">
     <Header />
     <Navbar />
-    <slider />
+    <Slider />
+    <MarkalarContent />
   </div>
 </template>
 
@@ -10,6 +11,8 @@
 import Header from './components/Header.vue'
 import Navbar from './components/Navbar.vue'
 import Slider from './components/Slider.vue'
+import MarkalarContent from './components/MarkalarContent.vue'
+
 
 
 export default {
@@ -17,7 +20,8 @@ export default {
   components: {
     Header,
     Navbar,
-    Slider
+    Slider,
+    MarkalarContent
   }
 }
 </script>
