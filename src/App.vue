@@ -7,6 +7,7 @@
     <Slick />
     <TabNavSection />
     <Banner />
+    <IconSection />
   </div>
 </template>
 
@@ -18,7 +19,7 @@ import MarkalarContent from './components/MarkalarContent.vue'
 import Slick from './components/Slick.vue'
 import TabNavSection from './components/TabNavSection.vue'
 import Banner from './components/Banner.vue'
-
+import IconSection from './components/IconSection.vue'
 
 export default {
   name: 'app',
@@ -29,7 +30,8 @@ export default {
     MarkalarContent,
     Slick,
     TabNavSection,
-    Banner
+    Banner,
+    IconSection
   }
 }
 </script>
