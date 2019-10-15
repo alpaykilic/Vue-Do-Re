@@ -1,0 +1,6 @@
+node modules boyutu fazla olduğu için çalıştırılacağı zaman sıfırdan vue projesi oluştur. Kodları kopyala
+ve 
+npm install vue-bootstrap-vue bootstrap
+ile
+npm install --save vuejs-countdown
+komutlarını çalıştır sonra servisi aç

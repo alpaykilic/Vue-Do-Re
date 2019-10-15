@@ -1,40 +1,49 @@
 <template>
-  <div id="app">
+  <div id="app" style="margin-top: 10px;">
     <Header />
-    <Navbar />
-    <Slider />
-    <MarkalarContent />
-    <Slick />
-    <TabNavSection />
+    <div class="main-container">
+    <Navbar class="navbar"/>
+    <!--<img alt="Vue logo" src="../src/assets/1.jpg"> Fotograf directoryisi -->
+    <Slider/>
+    <div style="background-color:rgb(246,246,246);">
+      <MarkalarContent/>
+      <Slick class="con-box"/>
+      <TabNavSection style="background-color:white;"/>
+      
+    </div>
     <Banner />
     <IconSection />
     <Footer />
+    <SlickCard />
+    </div>
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Navbar from './components/Navbar.vue'
 import Slider from './components/Slider.vue'
 import MarkalarContent from './components/MarkalarContent.vue'
-import Slick from './components/Slick.vue'
 import TabNavSection from './components/TabNavSection.vue'
+import Footer from './components/Footer.vue'
+import Header from './components/Header.vue'
+import Navbar from './components/Navbar.vue'
 import Banner from './components/Banner.vue'
 import IconSection from './components/IconSection.vue'
-import Footer from './components/Footer.vue'
+import Slick from './components/Slick.vue'
+
+
 
 export default {
   name: 'app',
   components: {
-    Header,
-    Navbar,
     Slider,
     MarkalarContent,
-    Slick,
     TabNavSection,
+    Footer,
+    Header,
+    Navbar,
     Banner,
     IconSection,
-    Footer
+    Slick
   }
 }
 </script>
@@ -48,6 +57,26 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.navbar{
+  position: sticky;
+  z-index: 5;
+}
+
+.nav-item{
+
+  font-size: 25px;
+  font-weight: bold;
+ 
+}
+
+.nav-item:hover{
+
+  text-decoration: none;
+  color: black;
+  
+}
+
 
 .con-box {
 box-sizing: border-box;
@@ -64,5 +93,6 @@ width: 1100px;
 padding-bottom: 40px;
 border-bottom: 1px solid #e0e0e0;
 }
+
 
 </style>
