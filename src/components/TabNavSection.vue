@@ -1,5 +1,5 @@
 <template>
-    <div style="margin-top: 50px;" class="container">
+    <div style="margin-top: 50px;" class="container" >
         <div class="row">
             <div style="border: 1px solid white" class="col-md-9">
                 <div class="row">
@@ -24,7 +24,8 @@
                                     5,849.10 TL
                                     </b-card-text>
 
-                                    <b-button class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
+                                    <b-button @click="tikla(0)" class="buttons" href="" variant="primary">SEPETE EKLE</b-button>
+                                    
                                 </b-card>
                                 </div>
                                 </div>
@@ -42,7 +43,7 @@
                                     919.80 TL
                                     </b-card-text>
 
-                                    <b-button class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
+                                    <b-button @click="tikla(1)" class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
                                 </b-card>
                                 </div>
                                 </div>
@@ -60,7 +61,7 @@
                                     936.00 TL
                                     </b-card-text>
 
-                                    <b-button class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
+                                    <b-button @click="tikla(2)" class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
                                 </b-card>
                                 </div>
                                 </div>
@@ -78,7 +79,7 @@
                                     1,814.45 TL
                                     </b-card-text>
 
-                                    <b-button class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
+                                    <b-button @click="tikla(3)" class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
                                 </b-card>
                                 </div>
                                 </div>
@@ -97,7 +98,7 @@
                                     5,120.10 TL
                                     </b-card-text>
 
-                                    <b-button class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
+                                    <b-button @click="tikla(4)" class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
                                 </b-card>
                                 </div>
                                 </div>
@@ -117,7 +118,7 @@
                                     691.01 TL
                                     </b-card-text>
 
-                                    <b-button class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
+                                    <b-button @click="tikla(5)" class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
                                 </b-card>
                                 </div>
                                 </div>
@@ -143,7 +144,7 @@
                                     12.00 TL
                                     </b-card-text>
 
-                                    <b-button class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
+                                    <b-button @click="tikla(12)" class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
                                 </b-card>
                                 </div>
                                 </div>
@@ -161,7 +162,7 @@
                                     917.83 TL
                                     </b-card-text>
 
-                                    <b-button class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
+                                    <b-button @click="tikla" class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
                                 </b-card>
                                 </div>
                                 </div>
@@ -179,7 +180,7 @@
                                     1,065.53 TL
                                     </b-card-text>
 
-                                    <b-button class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
+                                    <b-button @click="tikla" class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
                                 </b-card>
                                 </div>
                                 </div>
@@ -198,7 +199,7 @@
                                     822.88 TL
                                     </b-card-text>
 
-                                    <b-button class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
+                                    <b-button @click="tikla" class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
                                 </b-card>
                                 </div>
                                 </div>
@@ -217,7 +218,7 @@
                                     712.11 TL
                                     </b-card-text>
 
-                                    <b-button class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
+                                    <b-button @click="tikla" class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
                                 </b-card>
                                 </div>
                                 </div>
@@ -246,7 +247,7 @@
                                     4,899.00 TL
                                     </b-card-text>
 
-                                    <b-button class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
+                                    <b-button @click="tikla" class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
                                 </b-card>
                                 </div>
                                 </div>
@@ -485,7 +486,7 @@
                                     35,922.29 TL
                                     </b-card-text>
 
-                                    <b-button  class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
+                                    <b-button @click="tikla(6)"  class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
                                 </b-card>
                                 </div>
                                 </div>
@@ -504,7 +505,7 @@
                                     22,033.26 TL
                                     </b-card-text>
 
-                                    <b-button class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
+                                    <b-button @click="tikla(7)" class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
                                 </b-card>
                                 </div>
                                 </div>
@@ -512,12 +513,26 @@
             </div>
         </div>
         
+        <Header :msg = "toplamUrun"></Header>
     </div>
 </template>
 
 <script>
+import { urunBus } from '../main'
+
 export default {
-    
+    data(){
+        return{
+            
+        }
+    },
+
+     methods:{
+        tikla(butonId){
+            urunBus.$emit('urunEklendi', butonId)
+            this.$bvModal.show('bv-modal-example') 
+        }
+    }
 }
 </script>
 
