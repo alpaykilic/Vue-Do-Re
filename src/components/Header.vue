@@ -1,13 +1,13 @@
 <template>
 <div class="icon-con" style="padding-bottom: 0px;">
     <div class="colvs" style="float:right; padding: 0px; width: 970; margin-bottom: 8px; font-size:15px; color:black text-decoration:none;">
-        <a href="#" target="blank">Blog</a>
+        <a href="" style="text-decoration:none;">Blog</a>
         |
-        <a href="#">Mağazalar</a>
+        <a href="" style="text-decoration:none;">Mağazalar</a>
         |
-        <a href="#">Sipariş Takibi</a>
+        <a href="" style="text-decoration:none;">Sipariş Takibi</a>
         |
-        <a href="#">İletişim</a>
+        <a href="" style="text-decoration:none;">İletişim</a>
         |
         <span style="font-weight: 550;">Sipariş ve Destek Hattı: (212) 236 57 13</span>
 
@@ -18,17 +18,18 @@
 
     <div class="row" style="padding: 0px; width: 1168px; margin-left: auto; margin-right: auto">
         <div class="column left" style="background-color:transparent">
-            <img src="../assets/logo.svg" alt="Do-Re" style="margin-bottom: 30px" width="260" height="110"
-                >
-            <map name="workmap">
-                <area shape="rect" coords="15,30,240,80" href="#">
+          <!--  <img src="../assets/logo.svg" style="margin-bottom: 30px" width="260px;" height="110px;" usemap="#mainmap">
+            <map name="mainmap" >
+                <area shape="rect" coords="10,20,250,100" href="">
             </map>
+            -->
+            <button class="dorebuton" style="outline: none;" @click="sayfaDegis2"></button>
         </div>
         <div class="column middle" style="background-color:transparent;">
             <form class="example" action="./action_page" style="margin-right: auto;margin-top:40px;max-width:400px">
                 <input type="text" placeholder="Aramak istediğiniz ürünü yazın" name="search2"
                     style=" border: 2px solid #f1f1f1;">
-                <button type="submit;margin:auto;max-width:100px"> Ara</button>
+                <button style="margin:auto; max-width:100px; outline:none;"> Ara</button>
             </form>
 
         </div>
@@ -42,13 +43,20 @@
                         style="color: rgb(96, 95, 95); font-size: 15px; font-weight: 600; text-decoration:none;">ÜYE OLUN</a>
                 </div>
             </div>
-            <div style="float: right;margin:auto">
-                <img src="../assets/sepetlogo.png" alt="Do-Re" usemap="#workmap2" style="margin-top: 0px">
-                <map name="workmap2">
-                    <area shape="rect" coords="0,0,40,40" href="#">
-                </map>
-                <a href="#"
-                    style="color: rgb(96, 95, 95); font-size: 15px; margin:auto; font-weight: 600">SEPETİM</a>
+            <div style="float: right;">
+                <div class="row">
+                    <div class="sepet-icon" style="margin-left: -20px; margin-top: 0px;">
+                        {{ msg }}
+                        <img src="../assets/shopbasket.png" style="margin-top: -20px; margin-left:5px">
+                        <map name="workmap2">
+                            <area shape="rect" coords="0,0,24,24" href="/">
+                        </map>                   
+                    </div>
+                </div>
+
+
+                <button @click="sayfaDegis" target="_self"
+                    style="margin-top: -10px; color: rgb(96, 95, 95); font-size: 15px; font-weight: 600; border:none; background-color: white; outline:none;">SEPETİM</button>
             </div>
         </div>
     </div>
@@ -56,8 +64,37 @@
 </template>
 
 <script>
+// event bus u import ediyoruz.
+import { bus2 } from '../main'
+import { totalUrun } from '../main'
+
 export default {
     
+    data(){
+        return{
+            msg: 0,
+            sayfa: ''
+        }
+    },
+   // burada tanımlanan msg değişkeni tabnavsection componentinden gelen veriye eşitleniyor.
+    created(){
+        totalUrun.$on('guncellendi',(data) => {
+            this.msg = data
+        })
+    },
+
+    methods:{
+        sayfaDegis(){
+            this.sayfa = 'sepetim'
+            bus2.$emit('sayfaDegisti',this.sayfa)
+        },
+
+        sayfaDegis2(){
+            this.sayfa = 'mainpage'
+            bus2.$emit('sayfaDegisti',this.sayfa)
+        }
+    }
+
 }
 </script>
 
@@ -148,6 +185,33 @@ padding-left: 15px;
 width: 1200px;
 padding-bottom: 40px;
 border-bottom: 1px solid #e0e0e0;
+}
+
+.dorebuton {
+height: 110px;
+width: 260px;  
+background-image:url('../assets/logo.svg');
+background-repeat:no-repeat;
+border: none;
+background-color: white;
+}
+
+.sepet-icon {
+color: white;
+text-align: center;
+box-sizing: border-box;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+width: 24px;
+height: 24px;
+margin: 0;
+background: darkorange;
+border-radius: 100%;
+transition: background 400ms;
+position: relative;
 }
 
         

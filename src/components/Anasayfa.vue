@@ -4,7 +4,7 @@
     <div style="background-color:rgb(246,246,246);"> 
         <MarkalarContent/>
         <Slick/>
-        <TabNavSection style="background-color:white;" v-on:tikla="sepetUpdate($event)"/>
+        <TabNavSection style="background-color:white;"/>
     </div>
     <Banner />
     <IconSection />
@@ -12,6 +12,7 @@
 </template>
 
 <script>
+// Gerekli bileşenler import edildi.
 import MarkalarContent from '../components/MarkalarContent.vue'
 import TabNavSection from '../components/TabNavSection.vue'
 import Banner from '../components/Banner.vue'
@@ -34,10 +35,6 @@ import Slider from '../components/Slider.vue'
         toplamUrun: 0
       }
     },
-    methods:{
-      sepetUpdate(updatedUrun){
-        this.toplamUrun = updatedUrun
-      }
-    }
+    
   }
 </script>
