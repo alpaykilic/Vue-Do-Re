@@ -3,48 +3,64 @@
     <Header />
     <div class="main-container">
     <Navbar class="navbar"/>
-    <!--<img alt="Vue logo" src="../src/assets/1.jpg"> Fotograf directoryisi -->
-    <Slider/>
-    <div style="background-color:rgb(246,246,246);">
-      <MarkalarContent/>
-      <Slick class="con-box"/>
-      <TabNavSection style="background-color:white;"/>
-      
+    <div v-show="this.component == 'mainpage'">
+    <Anasayfa />
     </div>
-    <Banner />
-    <IconSection />
+    <div v-show="this.component == 'sepetim'">
+    <Sepetim />
+    </div>
+    <!--<router-view></router-view> -->
     <Footer />
-    <SlickCard />
     </div>
+    <LiveSupport class="sup-position"/>
+    <Modal />
   </div>
 </template>
 
 <script>
-import Slider from './components/Slider.vue'
-import MarkalarContent from './components/MarkalarContent.vue'
-import TabNavSection from './components/TabNavSection.vue'
+
+import { bus2 } from './main'
+
+import Anasayfa from './components/Anasayfa.vue'
 import Footer from './components/Footer.vue'
 import Header from './components/Header.vue'
 import Navbar from './components/Navbar.vue'
-import Banner from './components/Banner.vue'
-import IconSection from './components/IconSection.vue'
-import Slick from './components/Slick.vue'
-
+import LiveSupport from './components/LiveSupport.vue'
+import Sepetim from './components/Sepetim.vue'
+import Modal from './components/Modal.vue'
 
 
 export default {
   name: 'app',
+  data(){
+    return{
+      toplamUrun: 0,
+      component: 'mainpage',
+    }
+  },
+
   components: {
-    Slider,
-    MarkalarContent,
-    TabNavSection,
     Footer,
     Header,
     Navbar,
-    Banner,
-    IconSection,
-    Slick
-  }
+    Anasayfa,
+    Sepetim,
+    LiveSupport,
+    Modal,
+  },
+
+  methods:{
+    clickMe(){
+      this.component = 'sepetim'
+    }
+  },
+
+  created(){
+        bus2.$on('sayfaDegisti',(data) => {
+            this.component = data
+        })
+    },
+
 }
 </script>
 
@@ -74,25 +90,20 @@ export default {
 
   text-decoration: none;
   color: black;
+}
+
+.sup-position {
+  position:fixed;
+  bottom: 0;
+  right: 5px;
+  background-color: #7fb06f;
+  height: 45px;
+}
+.btn-secondary {
+  background-color:#7fb06f!important;
+  border-color: #7fb06f !important;
+  margin-top: -5px;
   
 }
-
-
-.con-box {
-box-sizing: border-box;
-margin: 0;
-border: 0;
-font-size: 100%;
-font: inherit;
-vertical-align: baseline;
-margin-right: auto;
-margin-left: auto;
-padding-left: 15px;
-padding-right: 15px;
-width: 1100px;
-padding-bottom: 40px;
-border-bottom: 1px solid #e0e0e0;
-}
-
 
 </style>
