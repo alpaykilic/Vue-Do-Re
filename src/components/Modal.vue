@@ -72,8 +72,9 @@ export default {
     font-weight: 500
 }
 
-/* ----- Aşağıda sepete git, alışverişe devam et ve indirim kodu modalının 
-tamam butonlarının rengi, boyutu gibi css bilgileri classlarda bulunur. ----- */
+/* ----- Aşağıda sepete git, alışverişe devam et 
+ve indirim kodu modalının tamam butonlarının rengi,
+ boyutu gibi css bilgileri classlarda bulunur. ---- */
 .sepet-but{
     margin-top: 10px;
     margin-left:10%;

@@ -1,7 +1,6 @@
 <template>
-
-    <!-- Sepetim kısmındaki sipariş detayı, adres seçimi, ödeme bilgileri ve sipariş onayı yazan sütunların template kısmı -->
     <div v-if="item.length > 0" style="padding-top: 60px;">
+        <!-- Sepetim kısmındaki sipariş detayı, adres seçimi, ödeme bilgileri ve sipariş onayı yazan sütunların template kısmı -->
         <div style="background-color: #f6f6f6; height:150px;">
         <div class="main-container" style="padding-top: 20px;" >
                 <b-container class="bv-example-row">
@@ -42,6 +41,7 @@
                 </b-container>
         </div>
         </div>
+        
         <!-- Sepetteki ürünlerin üst kısmında yazan bilgiler( birim fiyat, adet, toplam fiyat), sepet güncelleme butonu vs. -->
         <b-container class="ust-kisim" style="padding-top: 20px;">
             <b-row>
@@ -133,8 +133,8 @@
 <script>
 // urunBus ve totalUrun isimli eventbuslar ile EmptyBasket isimli component import edilir.
 import { urunBus } from '../main'
-import EmptyBasket from './EmptyBasket.vue'
 import { totalUrun } from '../main'
+import EmptyBasket from './EmptyBasket.vue'
 
 export default {
     components: {
@@ -271,34 +271,26 @@ img{
     height: auto;
 }
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,800&display=swap');
-
 /* ------------- Ust kısımdaki text ---------------- */
 .ust-kisim{
     color: black;
     font-family: 'Open Sans', sans-serif;
     font-weight: 800;
 }
-
 /*  ------------- Oksuz input eklemesi  -------------- */
-
 input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    
+input::-webkit-inner-spin-button {  
     -webkit-appearance: none;
     margin: 0; 
 }
-
 input[type=number] {
     -moz-appearance:textfield; 
 }
-
 input{
     width: 40%;
     text-align:center;
 }
-
 /*  ------------- ul içinde li'lerin stylingi -------------- */
-
 .hiza {
 margin-left:25%;
 margin-top:35%;
@@ -314,7 +306,6 @@ color: #9a9a9a;
 }
 
 /*  ------------- button style  -------------- */
-
 .rem-but {
     margin-top: 100%; 
     height: 30px; 
@@ -325,7 +316,6 @@ color: #9a9a9a;
     font-weight: bold;
     outline: none;
 }
-
 .urunİsim{
     margin-top: 20%; 
     color:#595959; 
@@ -334,25 +324,21 @@ color: #9a9a9a;
     font-weight: 700;
     text-align: left
 }
-
 .kargoStil {
     color:rgb(96, 144, 0);
     font-family: 'Open Sans', sans-serif;
     font-size: 13px;
     margin-top: 8px;
 }
-
 a:hover {
     text-decoration: none;
     color:white;
 }
-
 a{
     color: white;
     font-weight: 700;
     padding-top: 5px;
 }
-
 .kuponInput {
 width:220px; 
 height:30px; 
@@ -363,7 +349,6 @@ padding:5px;
 border: 1px solid gray;
 border-radius: 3px;
 }
-
 .kuponBut{
 width:80px; 
 height:30px;
@@ -375,7 +360,6 @@ border:none;
 margin-left: 15px;
 outline: none;
 }
-
 .guncelBut{
     margin-left: 30px; 
     margin-top : -5px; 
@@ -390,17 +374,13 @@ outline: none;
     outline: none;
 
 }
-
-
 .main-container{
     background-color: #f6f6f6;
 }
-
 .bv-example-row{
     background-color: #f6f6f6;
 
 }
-
 .tab-1{
     background-color: #f6f6f6;
     border: none;

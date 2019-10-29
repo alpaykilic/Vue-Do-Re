@@ -181,6 +181,7 @@ export default {
   .navbar a:hover,
   .subnav:hover .subnavbtn {
     background-color: rgb(120, 151, 140);
+    
   }
   
   /* Style the subnav content - positioned absolute */

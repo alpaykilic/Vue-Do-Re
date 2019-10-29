@@ -28,6 +28,7 @@
             rows="3"
             placeholder="Size yardımcı olmamızı istediğiniz konu nedir?"
             style="height:82px; border: 2px solid rgb(206,206,206); border-radius: 6px; text-align:justify; font-size: 14px;"
+            no-resize
           ></b-form-textarea>
         </b-form-group>  
 

@@ -3,7 +3,7 @@
     <section>
       <div class="container" style="padding-top: 75px;">
         <div  class="row">
-          <div style="border:1px solid white; padding:0px;" class="col-md-9">
+          <div style="border:1px solid white; padding:0px;" class="col-md-8">
 
              <b-carousel
       id="carousel-1"
@@ -83,12 +83,14 @@
 </div>
           
           </div>
-          <div style="border:1px solid black; padding:0px;" class="col-md-3 text-center">
-              <div style="height:90px; border:1px solid black; width:100%;">
+          <div style="border:1px solid #e0e0e0; padding:0px; margin-left: 20px;" class="col-md-3 text-center">
+              <div style="height:90px; border:1px solid #e0e0e0; width:100%; border-bottom: none;">
                 <h2 style="padding:20px;"><small>Fırsat Ürünleri</small></h2>
               </div>
               <div>
-                <Countdown deadline="December 1, 2019"></Countdown>
+                <div style="padding: 10px; border: 1px solid #e0e0e0; margin: 9px;">
+                <Countdown deadline="November 11, 2019"></Countdown>
+                </div>
             </div>
               <div style="margin:0 auto;" class="row">
                    <div>
@@ -125,7 +127,7 @@
           3,799.80 TL
         </p>
 
-        <button class="buttons">SEPETE EKLE</button>
+        <button @click="tikla(8)" class="buttons">SEPETE EKLE</button>
       </b-carousel-slide>
 
       <b-carousel-slide img-blank img-alt="Blank image">
@@ -142,7 +144,7 @@
           700.20 TL
         </p>
 
-        <button class="buttons">SEPETE EKLE</button>
+        <button @click="tikla(9)" class="buttons">SEPETE EKLE</button>
       </b-carousel-slide>
 
       <b-carousel-slide img-blank img-alt="Blank image">
@@ -159,7 +161,7 @@
           990.00 TL
         </p>
 
-        <button class="buttons">SEPETE EKLE</button>
+        <button @click="tikla(10)" class="buttons">SEPETE EKLE</button>
       </b-carousel-slide>
 
       <b-carousel-slide img-blank img-alt="Blank image">
@@ -176,7 +178,7 @@
           3,550.00 TL
         </p>
 
-        <button class="buttons">SEPETE EKLE</button>
+        <button @click="tikla(11)" class="buttons">SEPETE EKLE</button>
       </b-carousel-slide>
      
     </b-carousel>
@@ -197,12 +199,19 @@
 <script> 
 
 import Countdown from 'vuejs-countdown'
+import { urunBus } from '../main'
 
 export default {
   components: { Countdown },
   data(){
     return{
         
+    }
+  },
+  methods:{
+    tikla(butonId){
+      urunBus.$emit('urunEklendi', butonId)
+      this.$bvModal.show('bv-modal-example') 
     }
   }
 }

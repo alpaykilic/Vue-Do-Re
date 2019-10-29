@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="con-box">
     <b-carousel
       id="carousel-1"
       v-model="slide"
@@ -66,5 +66,19 @@
 </script>
 
 <style scoped>
-
+.con-box {
+box-sizing: border-box;
+margin: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+margin-right: auto;
+margin-left: auto;
+padding-left: 15px;
+padding-right: 15px;
+width: 1100px;
+padding-bottom: 40px;
+border-bottom: 1px solid #e0e0e0;
+}
 </style>
