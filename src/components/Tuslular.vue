@@ -1,6 +1,7 @@
 <template>
-<div> 
-    <!-- Aşağıdaki kısımda bootstrap cardlar kullanılarak piyanolar sayfasındaki piyano çeşitlerini içeren bölüm yazılmıştır. -->
+<div>
+    <!-- Aşağıdaki kısımda bootstrap cardlar kullanılarak tuşlular sayfasındaki tuşlu çeşitlerini içeren bölüm yazılmıştır.
+      -- Bootstrap card kullanılmıştır. -->
     <div style="background-color: rgb(238,238,238)">
         <div class="container">
             <div class="row" style="width: 1170px;">
@@ -11,7 +12,7 @@
                                 <div class="line"></div>
                             </div>
                             <div class="col-md-2">
-                                <h2 style="font-size:30px; color:black; font-weight:700;">PİYANOLAR</h2>
+                                <h2 style="font-size:30px; color:black; font-weight:700;">TUŞLULAR</h2>
                             </div>
                             <div class="col-md-5">
                                 <div class="line"></div>
@@ -23,111 +24,111 @@
                     <div style="border-bottom:1px solid rgb(196,196,196)">
                         <b-card-group deck style="background-color:rgb(238,238,238);">
                             
-                            <b-card @click="sayfaDegis" class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/ac8e70227983936830d446b2b089a1ba.jpg" img-alt="Image" img-top>
+                            <b-card @click="sayfaDegis" class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/9a9bd62f431a79bb5bd391e7547d4aca.jpg" img-alt="Image" img-top>
                             <b-card-body class="text-center">
                                 <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
                                 <br>
                                 <br>
                                 <p class="pStyle">
-                                    Akustik Duvar Piyanoları
+                                    Eğitim Klavyeleri & Orglar
                                 </p>
                                 <br>
-                                <p style="font-size:15px;">73 Ürün</p>
+                                <p style="font-size:15px;">32 Ürün</p>
                             </b-card-body>
                             </b-card>
 
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/c29148fef88833fc1847d8249ab80164.jpg" img-alt="Image" img-top>
+                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/244e3687a3ef566fa749371b4d007cb9.jpg" img-alt="Image" img-top>
                             <b-card-body class="text-center">
                                 <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
                                 <br>
                                 <br>
                                 <p class="pStyle">
-                                    Akustik Kuyruklu Piyano
+                                    Ritimli Klavyeler
                                 </p>
                                 <br>
-                                <p style="font-size:15px;">43 Ürün</p>
+                                <p style="font-size:15px;">9 Ürün</p>
                             </b-card-body>
                             </b-card>
 
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/44c89d9a758a9c09b1c63afcc96a519c.jpg" img-alt="Image" img-top>
+                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/9e790b8368bcd72969d9f3555cc017a8.jpg" img-alt="Image" img-top>
                             <b-card-body class="text-center">
                                 <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
                                 <br>
                                 <br>
                                 <p class="pStyle">
-                                    Dijital Konsol Piyanolar
+                                    Synthesizer
                                 </p>
                                 <br>
-                                <p style="font-size:15px;">92 Ürün</p>
+                                <p style="font-size:15px;">29 Ürün</p>
                             </b-card-body>
                             </b-card>
 
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/9aaff3ba89d4e4382a4e5917e42e4c7e.jpg" img-alt="Image" img-top>
+                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/0d58d58452f244abeaeb8a5ad548b948.jpg" img-alt="Image" img-top>
                             <b-card-body class="text-center">
                                 <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
                                 <br>
                                 <br>
                                 <p class="pStyle">
-                                    Dijital Kuyruklu Piyano
+                                    Midi Klavyeler
                                 </p>
                                 <br>
-                                <p style="font-size:15px;">8 Ürün</p>
+                                <p style="font-size:15px;">24 Ürün</p>
                             </b-card-body>
                             </b-card>
                             
                         </b-card-group>
 
                         <b-card-group deck style="background-color:rgb(238,238,238); margin-top: 30px;">
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/2362b3a1eee8000301f872c2a3fa44d1.jpg" img-alt="Image" img-top>
+                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/10f6d7e40d95cab50badd8dc4e430ead.jpg" img-alt="Image" img-top>
                             <b-card-body class="text-center">
                                 <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
                                 <br>
                                 <br>
                                 <p class="pStyle">
-                                    Dijital Taşınabilir Piyano
+                                    Mini Orglar
                                 </p>
                                 <br>
-                                <p style="font-size:15px;">25 Ürün</p>
+                                <p style="font-size:15px;">5 Ürün</p>
                             </b-card-body>
                             </b-card>
 
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/d4a0b0e3c01707a2d1dbfb9134df1fb6.jpg" img-alt="Image" img-top>
+                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/a0985521a55c17ec48aaa9a5031ae631.jpg" img-alt="Image" img-top>
                             <b-card-body class="text-center">
                                 <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
                                 <br>
                                 <br>
                                 <p class="pStyle">
-                                    Akustik Silent Piyanolar
+                                    Launchpad'ler
                                 </p>
                                 <br>
-                                <p style="font-size:15px;">27 Ürün</p>
+                                <p style="font-size:15px;">4 Ürün</p>
                             </b-card-body>
                             </b-card>
 
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/c11f581f63631261ace14142b8dd0112.jpg" img-alt="Image" img-top>
+                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/2f55cec9425852400514bc0c5ac01c8f.jpg" img-alt="Image" img-top>
                             <b-card-body class="text-center">
                                 <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
                                 <br>
                                 <br>
                                 <p class="pStyle">
-                                    Akustik Disklavier Piyano
+                                    Hammond Orglar
                                 </p>
                                 <br>
-                                <p style="font-size:15px;">7 Ürün</p>
+                                <p style="font-size:15px;">6 Ürün</p>
                             </b-card-body>
                             </b-card>
 
 
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/22c2d71730090de5b173e18274a17f22.jpg" img-alt="Image" img-top>
+                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/cac3c60a6a0f622da93816c86ad1bf2b.jpg" img-alt="Image" img-top>
                             <b-card-body class="text-center">
                                 <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
                                 <br>
                                 <br>
                                 <p class="pStyle">
-                                    Akustik Duvar Piyanoları
+                                    Akordiyonlar
                                 </p>
                                 <br>
-                                <p style="font-size:15px;">51 Ürün</p>
+                                <p style="font-size:15px;">20 Ürün</p>
                             </b-card-body>
                             </b-card>
                         </b-card-group>
@@ -139,11 +140,12 @@
             </div>
         </div>
     </div>
-    <!-- Burada ise piyano markaları yazan slider için gerekli html kodları yazılmıştır. -->
+    <!-- Tuşluların markalarını gösteren slider için yazılan html kodları aşağıda bulunmaktadır.
+      -- Slider bootstrap'in sitesinden örnek alınarak tasarlanmıştır-->
     <div class="container">
         <section>
                 <div class="row" style="padding-top: 30px; padding-bottom: 10px;">
-                    <h2 style="font-size:25px; color:rgb(39,39,39); font-weight:700; margin-left:20px;">Piyano Markaları</h2>      
+                    <h2 style="font-size:25px; color:rgb(39,39,39); font-weight:700; margin-left:20px;">Tuşlu Markaları</h2>      
                     </div>
         </section>
     </div>
@@ -159,7 +161,7 @@
         img-height="480"
         style="text-shadow: 1px 1px 2px #333;"
         >
-        <!-- Text slides with image -->
+        
         
         <b-carousel-slide>
             <template v-slot:img>
@@ -167,7 +169,7 @@
                 class="d-block img-fluid w-100"
                 width="1024"
                 height="480"
-                src="../assets/pmarka1.png"
+                src="../assets/tmarka1.png"
                 alt="image slot"
             >
             </template>
@@ -179,7 +181,7 @@
                 class="d-block img-fluid w-100"
                 width="1024"
                 height="480"
-                src="../assets/pmarka2.png"
+                src="../assets/tmarka2.png"
                 alt="image slot"
             >
             </template>
@@ -190,36 +192,36 @@
 
     
     </div>
-    <!-- Piyanolar sayfasındaki tanıtım videoları kısmı bulunmaktadır. -->
+    <!-- Tuşlular sayfasında bulunan tanıtım videoları aşağıda görüldüğü gibi kodlanmıştır. -->
     <div style="background-color: rgb(238,238,238)">
         <div class="container">
             <section>
                 <div class="row" style="padding-top: 40px; padding-bottom: 10px;">
-                    <h2 style="font-size:25px; color:rgb(39,39,39); font-weight:700; margin-left:20px;">Piyano Tanıtım Videoları</h2>      
+                    <h2 style="font-size:25px; color:rgb(39,39,39); font-weight:700; margin-left:20px;">Tuşlu Tanıtım Videoları</h2>      
                 </div>
             </section>
             <div class="row" style="margin-top:15px;">
                 <div class="col-md-3">
-                    <button class="imageButton" style="background-image: url(https://img.youtube.com/vi/tkyIaOSDHYo/mqdefault.jpg)" >     
+                    <button class="imageButton" style="background-image: url(https://img.youtube.com/vi/EMp229nCpo0/mqdefault.jpg)" >     
                     </button>
                 </div>
                  <div class="col-md-3">
-                    <button class="imageButton" style="background-image: url(https://img.youtube.com/vi/GT4pJCKOXPg/mqdefault.jpg)" >     
+                    <button class="imageButton" style="background-image: url(https://img.youtube.com/vi/oGychloYgis/mqdefault.jpg)" >     
                     </button>
                 </div>
                  <div class="col-md-3">
-                    <button class="imageButton" style="background-image: url(https://img.youtube.com/vi/D4Vlchuckk4/mqdefault.jpg)" >     
+                    <button class="imageButton" style="background-image: url(https://img.youtube.com/vi/MaT8hKAU5bM/mqdefault.jpg)" >     
                     </button>
-                    <p style="font-size:14px;">Yamaha SILENT Piano™ SH2/SC2 Overview</p>
+                    <p style="font-size:14px;">PSR-S670 Voice</p>
                 </div>
                  <div class="col-md-3">
-                    <button class="imageButton" style="background-image: url(https://img.youtube.com/vi/m13bU4Zrtyw/mqdefault.jpg)" >     
+                    <button class="imageButton" style="background-image: url(https://img.youtube.com/vi/eKAR5h3TTSw/mqdefault.jpg)" >     
                     </button>
-                    <p style="font-size:14px;">Yamaha YDP143 Dijital Piyano Tanıtımı ve İncelemesi</p>
+                    <p style="font-size:14px;">Yamaha PSR-F51 Overview</p>
                 </div>
             </div>
             <div style="border-bottom: 1px solid rgb(196,196,196)">
-                <button style="font-size:28px; outline:none; border:none; background-color: transparent; margin-bottom:40px;">+ Tüm Piyano Tanıtım Videoları</button>
+                <button style="font-size:28px; outline:none; border:none; background-color: transparent; margin-bottom:40px;">+ Tüm Tuşlu Tanıtım Videoları</button>
             </div>
             
         </div>
@@ -229,7 +231,7 @@
 </template>
 
 <script>
-// event bus kullanılarak aşağıdaki metot içerisinde akustik piyanolar sayfasına geçiş sağlandı.
+// Sayfa değiştirmeyi sağlayan bus2 isimli eventbus.
 import { bus2 } from '../main'
 
 export default {
@@ -239,17 +241,17 @@ export default {
 
         }
     },
+    // Sayfa değiştirmeyi sağlayan fonksiyon.
     methods:{
         sayfaDegis(){
-            bus2.$emit('sayfaDegisti','piyanoUrunler')
+            bus2.$emit('sayfaDegisti','tusluUrunler')
         }
     }
 }
 </script>
 
 <style scoped>
-/* Bu kısımda html kısmı içerisinde yazılan div, buton vb. html kodlarının boyutu, 
-şekli gibi özelliklerini ayarladığımız css sınıfları bulunuyor. */
+/* Template kısmında kullanılan elemanların style classları. */
 .baslik {
     box-sizing: border-box;
     margin-top: 75px;;
