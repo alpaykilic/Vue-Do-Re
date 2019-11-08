@@ -74,7 +74,7 @@
                     </b-row>
                     <b-row v-show="sayfa==1" class="cards-1" style=" margin-top: 50px;"> <!-- CARDS SECTION PART I -->
                         <b-col style="height: 455px; width: 220px; text-align:Center">
-                             <b-card img-src="https://www.do-re.com.tr/pearl-river-um115m5-silent-akustik-duvar-piyanosu-parlak-beyaz-2989de7c689c04c122201f39690fe6d2-5fb80917c79396a29b192af1ebc9e64b-mid-pp.jpg" img-alt="Image" img-top
+                             <b-card @click="sayfaDegis(3)" img-src="https://www.do-re.com.tr/pearl-river-um115m5-silent-akustik-duvar-piyanosu-parlak-beyaz-2989de7c689c04c122201f39690fe6d2-5fb80917c79396a29b192af1ebc9e64b-mid-pp.jpg" img-alt="Image" img-top
                                 tag="article" style="max-width: 20rem;" class="mb-2 cardStyle">
                                 <b-card-text style="font-size:12px; font-weight:bold;">
                                     Pearl River UM115M5 Akustik Duvar Piyanosu (Parlak Beyaz)
@@ -393,6 +393,9 @@ export default {
           }
           else if(id==2){
             bus2.$emit('sayfaDegisti','piyano')
+          }
+          else if(id==3){
+            bus2.$emit('sayfaDegisti','urun1')
           }
       },
 

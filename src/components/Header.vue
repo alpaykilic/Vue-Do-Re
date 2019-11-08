@@ -7,7 +7,7 @@
         |
         <a href="" style="text-decoration:none;">Sipariş Takibi</a>
         |
-        <a href="" style="text-decoration:none;">İletişim</a>
+        <button @click="iletisimAc" style="text-decoration:none; border:none; outline:none; background-color:transparent">İletişim</button>
         |
         <span style="font-weight: 550;">Sipariş ve Destek Hattı: (212) 236 57 13</span>
 
@@ -36,11 +36,11 @@
         <div class="column right" style="background-color:transparent;">
             <div class="nologin">
                 <div style="float: right;margin-top: 30px">
-                    <a href="#"
-                        style="color: rgb(96, 95, 95); font-size: 15px; font-weight: 600; text-decoration:none;">GİRİŞ YAPIN</a>
+                    <button @click="sayfaDegis3"
+                        style="color: rgb(96, 95, 95); font-size: 15px; font-weight: 600; text-decoration:none; border:none; outline:none; background-color:white">GİRİŞ YAPIN</button>
                     YA DA
-                    <a href="#"
-                        style="color: rgb(96, 95, 95); font-size: 15px; font-weight: 600; text-decoration:none;">ÜYE OLUN</a>
+                    <button @click="sayfaDegis4"
+                        style="color: rgb(96, 95, 95); font-size: 15px; font-weight: 600; text-decoration:none; border:none; outline:none; background-color:White">ÜYE OLUN</button>
                 </div>
             </div>
             <div style="float: right;">
@@ -89,8 +89,23 @@ export default {
             bus2.$emit('sayfaDegisti',this.sayfa)
         },
 
+        iletisimAc(){
+            this.sayfa = 'iletisim'
+            bus2.$emit('sayfaDegisti',this.sayfa)
+        },
+
         sayfaDegis2(){
             this.sayfa = 'mainpage'
+            bus2.$emit('sayfaDegisti',this.sayfa)
+        },
+
+        sayfaDegis3(){
+            this.sayfa = 'login'
+            bus2.$emit('sayfaDegisti',this.sayfa)
+        },
+
+        sayfaDegis4(){
+            this.sayfa = 'register'
             bus2.$emit('sayfaDegisti',this.sayfa)
         }
     }

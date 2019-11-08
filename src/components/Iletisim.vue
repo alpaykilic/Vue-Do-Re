@@ -7,7 +7,8 @@
             </div>
         </div>
 
-        <!-- Burada iletişim sayfasının içeriği bulunuyor. Butonlar aracılığıyla sayfa içerisinde diğer sayfalar gösteriliyor. -->
+        <!-- Burada iletişim sayfasının içeriği bulunuyor. Butonlar aracılığıyla sayfa 
+        içerisinde diğer sayfalar gösteriliyor. -->
         <div class="container" style="margin-top:20px;">
             <div class="row">
                 <div class="col-md-12 col-xs-12 col-sm-12">

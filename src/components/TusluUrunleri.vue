@@ -91,7 +91,7 @@
                     </b-row>
                     <b-row v-show="sayfa==1" class="cards-1" style=" margin-top: 50px;"> <!-- CARDS SECTION PART I -->
                         <b-col style="height: 455px; width: 220px; text-align:Center">
-                             <b-card img-src="https://www.do-re.com.tr/yamahapsr-f51-61-tuslu-org-siyah-f46c7089ba85c99e7fab7da4e6188b78-18a6694bc49d83c852f59af55c65083a-mid-pp.jpg" img-alt="Image" img-top
+                             <b-card @click="sayfaDegis(3)" img-src="https://www.do-re.com.tr/yamahapsr-f51-61-tuslu-org-siyah-f46c7089ba85c99e7fab7da4e6188b78-18a6694bc49d83c852f59af55c65083a-mid-pp.jpg" img-alt="Image" img-top
                                 tag="article" style="max-width: 20rem;" class="mb-2 cardStyle">
                                 <b-card-text style="font-size:12px; font-weight:bold;">
                                     Yamaha PSR F51 61-Tuşlu Org (Siyah)
@@ -413,6 +413,9 @@ export default {
           }
           else if(id==2){
             bus2.$emit('sayfaDegisti','tuslu')
+          }
+          else if(id==3){
+            bus2.$emit('sayfaDegisti','urun2')
           }
       },
 

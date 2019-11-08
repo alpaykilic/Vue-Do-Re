@@ -1,8 +1,8 @@
 <template>
-    <div >
-        <footer class="footer" style="text-align:left;">
+    <div>
+        <footer class="footer" style="text-align:left; margin-top:-350px; margin-left:-435px;">
         <div class="icon-con">
-            <div class="footer-top" style="width:1200px; margin-left:7%;"> 
+            <div class="footer-top"> 
         </div>
         
             <div class="icon-con">

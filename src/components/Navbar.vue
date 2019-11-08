@@ -4,7 +4,7 @@
         <div class="navbar sticky">
         <div class="icon-con">
         <div class="subnav" >
-            <button class="subnavbtn" >PİYANOLAR<i class="fa fa-caret-down"></i></button>
+            <button @click="sayfaDegis(1)" class="subnavbtn" >PİYANOLAR<i class="fa fa-caret-down"></i></button>
             <div class="subnav-content">
                 <div class="icon-con">
                 <a href="#">Piyano Modelleri</a>
@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="subnav">
-            <button class="subnavbtn" style="height:55px;">TUŞLULAR<i class="fa fa-caret-down"></i></button>
+            <button @click="sayfaDegis(2)" class="subnavbtn" style="height:55px;">TUŞLULAR<i class="fa fa-caret-down"></i></button>
             <div class="subnav-content">
                 <div class="icon-con">
                 <a href="#">Tuşlu Enstrüman Modelleri</a>
@@ -119,8 +119,26 @@
 </template>
 
 <script>
+import { bus2 } from '../main'
+
 export default {
     
+    data(){
+        return{
+            sayfa : ""
+        }
+    },
+    methods:{
+        sayfaDegis(num){
+            if(num == 1){
+                this.sayfa = "piyano"
+            }
+            else if(num ==2){
+                this.sayfa = "tuslu"
+            }
+            bus2.$emit('sayfaDegisti',this.sayfa)
+        }
+    }
 }
 </script>
 

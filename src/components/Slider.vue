@@ -19,11 +19,11 @@
       @sliding-end="onSlideEnd"
     >
       <!-- Text slides with image -->
-      <b-carousel-slide img-src="https://data.do-re.com.tr/Headline/back-to-school-bed047621119a4deb72d9ae9968bcc01-large.jpg">
+      <b-carousel-slide img-src="https://data.do-re.com.tr/Headline/sonbahar-indirimi-bed047621119a4deb72d9ae9968bcc01-large.jpg">
       </b-carousel-slide>
 
       <!-- Slides with custom text -->
-      <b-carousel-slide img-src="https://data.do-re.com.tr/Headline/kurzweil-casio-piyano-modelleri-200d90800ec50337ecfdd08b85e93070-large.jpg">        
+      <b-carousel-slide img-src="https://data.do-re.com.tr/Headline/duvar-piyano-fiyatlari-ve-modelleri-cdc9699e91cd0dcce8ffe745f73766d7-large.jpg">        
       </b-carousel-slide>
 
       <!-- Slides with image only -->
@@ -50,8 +50,8 @@
                 <div class="slide-images">
                     <b-container class="bv-example-row" style="margin: 0 auto;">
                       <b-row>
-                        <b-col style="width: 23px;"><img src="https://data.do-re.com.tr/Headline/back-to-school-bed047621119a4deb72d9ae9968bcc01-thumb.jpg" style="padding-top: 20px;" usemap="#slidebox"></b-col>
-                        <b-col style="width: 23px;"><img src="https://data.do-re.com.tr/Headline/kurzweil-casio-piyano-modelleri-200d90800ec50337ecfdd08b85e93070-thumb.jpg" style="padding-top: 20px;" usemap="#slidebox"></b-col>
+                        <b-col style="width: 23px;"><img src="https://data.do-re.com.tr/Headline/sonbahar-indirimi-bed047621119a4deb72d9ae9968bcc01-thumb.jpg" style="padding-top: 20px;" usemap="#slidebox"></b-col>
+                        <b-col style="width: 23px;"><img src="https://data.do-re.com.tr/Headline/duvar-piyano-fiyatlari-ve-modelleri-cdc9699e91cd0dcce8ffe745f73766d7-thumb.jpg" style="padding-top: 20px;" usemap="#slidebox"></b-col>
                         <b-col style="width: 23px;"><img src="https://data.do-re.com.tr/Headline/klasik-gitar-modelleri-552fd0ac7fc4f0d9dbefef625fd8c475-thumb.jpg" style="padding-top: 20px;" usemap="#slidebox"></b-col>
                         <b-col style="width: 23px;"><img src="https://data.do-re.com.tr/Headline/tasinabilir-piyano-ve-klavye-kampanyasi-abf25076b8a9fdb64817e0a36622b9bc-thumb.jpg" style="padding-top: 20px;" usemap="#slidebox"></b-col>
                         <b-col style="width: 23px;"><img src="https://data.do-re.com.tr/Headline/yamaha-ydp-serisi-dijital-piyanolar-6331b3b51f58ffeb317d22d0061058bf-thumb.jpg" style="padding-top: 20px;" usemap="#slidebox"></b-col>
