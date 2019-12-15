@@ -10,7 +10,6 @@
       v-model="slide"
       :interval="4000"
       controls
-      indicators
       background="#ababab"
       img-width="1024"
       img-height="480"
@@ -19,30 +18,13 @@
       @sliding-end="onSlideEnd"
     >
       <!-- Text slides with image -->
-      <b-carousel-slide img-src="https://data.do-re.com.tr/Headline/sonbahar-indirimi-bed047621119a4deb72d9ae9968bcc01-large.jpg">
-      </b-carousel-slide>
-
-      <!-- Slides with custom text -->
-      <b-carousel-slide img-src="https://data.do-re.com.tr/Headline/duvar-piyano-fiyatlari-ve-modelleri-cdc9699e91cd0dcce8ffe745f73766d7-large.jpg">        
-      </b-carousel-slide>
-
-      <!-- Slides with image only -->
-      <b-carousel-slide img-src="https://data.do-re.com.tr/Headline/klasik-gitar-modelleri-552fd0ac7fc4f0d9dbefef625fd8c475-large.jpg">
-      </b-carousel-slide>
-
-      <!-- Slides with img slot -->
-      <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-      <b-carousel-slide img-src="https://data.do-re.com.tr/Headline/tasinabilir-piyano-ve-klavye-kampanyasi-abf25076b8a9fdb64817e0a36622b9bc-large.jpg">      
-      </b-carousel-slide>
-
-      <!-- Slide with blank fluid image to maintain slide aspect ratio -->
-      <b-carousel-slide  img-src="https://data.do-re.com.tr/Headline/yamaha-ydp-serisi-dijital-piyanolar-6331b3b51f58ffeb317d22d0061058bf-large.jpg">     
-      </b-carousel-slide>
-
-      <b-carousel-slide  img-src="https://data.do-re.com.tr/Headline/yamaha-b1-akustik-duvar-piyanosu-modelleri-4e2c3b46a148a6b81747da9a4ffde5ab-large.jpg">     
-      </b-carousel-slide>
-
-      <b-carousel-slide  img-src="https://data.do-re.com.tr/Headline/yamaha-dtx-400-serisi-dijital-davul-modelleri-f1620ce2a4ac79cff09621e30ccd4e90-large.jpg">     
+      <b-carousel-slide 
+      v-for="(image,index) in images"
+      v-bind:item="image"
+      v-bind:index="index"
+      v-bind:key="image.id"
+      v-bind:img-src=image.resim
+      >
       </b-carousel-slide>
 
     </b-carousel>
@@ -50,7 +32,7 @@
                 <div class="slide-images">
                     <b-container class="bv-example-row" style="margin: 0 auto;">
                       <b-row>
-                        <b-col style="width: 23px;"><img src="https://data.do-re.com.tr/Headline/sonbahar-indirimi-bed047621119a4deb72d9ae9968bcc01-thumb.jpg" style="padding-top: 20px;" usemap="#slidebox"></b-col>
+                        <b-col style="width: 23px;"><img src="https://data.do-re.com.tr/Headline/yamaha-b1-akustik-duvar-piyanosu-modelleri-4e2c3b46a148a6b81747da9a4ffde5ab-thumb.jpg" style="padding-top: 20px;" usemap="#slidebox"></b-col>
                         <b-col style="width: 23px;"><img src="https://data.do-re.com.tr/Headline/duvar-piyano-fiyatlari-ve-modelleri-cdc9699e91cd0dcce8ffe745f73766d7-thumb.jpg" style="padding-top: 20px;" usemap="#slidebox"></b-col>
                         <b-col style="width: 23px;"><img src="https://data.do-re.com.tr/Headline/klasik-gitar-modelleri-552fd0ac7fc4f0d9dbefef625fd8c475-thumb.jpg" style="padding-top: 20px;" usemap="#slidebox"></b-col>
                         <b-col style="width: 23px;"><img src="https://data.do-re.com.tr/Headline/tasinabilir-piyano-ve-klavye-kampanyasi-abf25076b8a9fdb64817e0a36622b9bc-thumb.jpg" style="padding-top: 20px;" usemap="#slidebox"></b-col>
@@ -89,7 +71,7 @@
               </div>
               <div>
                 <div style="padding: 10px; border: 1px solid #e0e0e0; margin: 9px;">
-                <Countdown deadline="November 11, 2019"></Countdown>
+                <Countdown deadline="December 21, 2019"></Countdown>
                 </div>
             </div>
               <div style="margin:0 auto;" class="row">
@@ -99,7 +81,6 @@
       v-model="slide"
       :interval="4000"
       controls
-      indicators
       background="grey;"
       img-width="300"
       img-height="400"
@@ -200,12 +181,15 @@
 
 import Countdown from 'vuejs-countdown'
 import { urunBus } from '../main'
+import ImageSlide from '../ImageSlide'
 
 export default {
   components: { Countdown },
   data(){
     return{
-        
+        images: [],
+        error: '',
+        resim: ''
     }
   },
   methods:{
@@ -213,7 +197,16 @@ export default {
       urunBus.$emit('urunEklendi', butonId)
       this.$bvModal.show('bv-modal-example') 
     }
-  }
+  },
+  
+  async created() {
+    try {
+      this.images = await ImageSlide.getPosts();
+    }
+    catch (err){
+      this.error = err.message;
+    }
+    }
 }
 
   

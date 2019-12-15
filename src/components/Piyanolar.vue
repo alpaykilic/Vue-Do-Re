@@ -23,58 +23,23 @@
                     <div style="border-bottom:1px solid rgb(196,196,196)">
                         <b-card-group deck style="background-color:rgb(238,238,238);">
                             
-                            <b-card @click="sayfaDegis" class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/ac8e70227983936830d446b2b089a1ba.jpg" img-alt="Image" img-top>
+                            <b-card @click="sayfaDegis" class="cardBorder" v-bind:img-src=urun.resim img-alt="Image" img-top
+                            v-for="(urun,index) in items"
+                            v-bind:item="post"
+                            v-bind:index="index"
+                            v-bind:key="urun.id"
+                            >
                             <b-card-body class="text-center">
                                 <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
                                 <br>
                                 <br>
                                 <p class="pStyle">
-                                    Akustik Duvar Piyanoları
+                                    {{urun.isim}}
                                 </p>
                                 <br>
-                                <p style="font-size:15px;">73 Ürün</p>
+                                <p style="font-size:15px;"> {{urun.miktar}} </p>
                             </b-card-body>
                             </b-card>
-
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/c29148fef88833fc1847d8249ab80164.jpg" img-alt="Image" img-top>
-                            <b-card-body class="text-center">
-                                <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
-                                <br>
-                                <br>
-                                <p class="pStyle">
-                                    Akustik Kuyruklu Piyano
-                                </p>
-                                <br>
-                                <p style="font-size:15px;">43 Ürün</p>
-                            </b-card-body>
-                            </b-card>
-
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/44c89d9a758a9c09b1c63afcc96a519c.jpg" img-alt="Image" img-top>
-                            <b-card-body class="text-center">
-                                <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
-                                <br>
-                                <br>
-                                <p class="pStyle">
-                                    Dijital Konsol Piyanolar
-                                </p>
-                                <br>
-                                <p style="font-size:15px;">92 Ürün</p>
-                            </b-card-body>
-                            </b-card>
-
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/9aaff3ba89d4e4382a4e5917e42e4c7e.jpg" img-alt="Image" img-top>
-                            <b-card-body class="text-center">
-                                <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
-                                <br>
-                                <br>
-                                <p class="pStyle">
-                                    Dijital Kuyruklu Piyano
-                                </p>
-                                <br>
-                                <p style="font-size:15px;">8 Ürün</p>
-                            </b-card-body>
-                            </b-card>
-                            
                         </b-card-group>
 
                         <b-card-group deck style="background-color:rgb(238,238,238); margin-top: 30px;">
@@ -231,18 +196,27 @@
 <script>
 // event bus kullanılarak aşağıdaki metot içerisinde akustik piyanolar sayfasına geçiş sağlandı.
 import { bus2 } from '../main'
-
+import Piyanolar from '../Piyanolar'
 export default {
 
     data(){
         return{
-
+            items: [],
+            error: ''
         }
     },
     methods:{
         sayfaDegis(){
             bus2.$emit('sayfaDegisti','piyanoUrunler')
         }
+    },
+    async created() {
+    try {
+      this.items = await Piyanolar.getPosts();
+    }
+    catch (err){
+      this.error = err.message;
+    }
     }
 }
 </script>

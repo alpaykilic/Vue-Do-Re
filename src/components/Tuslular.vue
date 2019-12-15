@@ -24,58 +24,24 @@
                     <div style="border-bottom:1px solid rgb(196,196,196)">
                         <b-card-group deck style="background-color:rgb(238,238,238);">
                             
-                            <b-card @click="sayfaDegis" class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/9a9bd62f431a79bb5bd391e7547d4aca.jpg" img-alt="Image" img-top>
+                            <b-card 
+                            @click="sayfaDegis" class="cardBorder" v-bind:img-src=urun.resim img-alt="Image" img-top
+                            v-for="(urun,index) in items"
+                            v-bind:item="post"
+                            v-bind:index="index"
+                            v-bind:key="urun.id"
+                            >
                             <b-card-body class="text-center">
                                 <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
                                 <br>
                                 <br>
                                 <p class="pStyle">
-                                    Eğitim Klavyeleri & Orglar
+                                    {{urun.isim}}
                                 </p>
                                 <br>
-                                <p style="font-size:15px;">32 Ürün</p>
+                                <p style="font-size:15px;"> {{urun.miktar}} </p>
                             </b-card-body>
                             </b-card>
-
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/244e3687a3ef566fa749371b4d007cb9.jpg" img-alt="Image" img-top>
-                            <b-card-body class="text-center">
-                                <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
-                                <br>
-                                <br>
-                                <p class="pStyle">
-                                    Ritimli Klavyeler
-                                </p>
-                                <br>
-                                <p style="font-size:15px;">9 Ürün</p>
-                            </b-card-body>
-                            </b-card>
-
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/9e790b8368bcd72969d9f3555cc017a8.jpg" img-alt="Image" img-top>
-                            <b-card-body class="text-center">
-                                <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
-                                <br>
-                                <br>
-                                <p class="pStyle">
-                                    Synthesizer
-                                </p>
-                                <br>
-                                <p style="font-size:15px;">29 Ürün</p>
-                            </b-card-body>
-                            </b-card>
-
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/0d58d58452f244abeaeb8a5ad548b948.jpg" img-alt="Image" img-top>
-                            <b-card-body class="text-center">
-                                <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
-                                <br>
-                                <br>
-                                <p class="pStyle">
-                                    Midi Klavyeler
-                                </p>
-                                <br>
-                                <p style="font-size:15px;">24 Ürün</p>
-                            </b-card-body>
-                            </b-card>
-                            
                         </b-card-group>
 
                         <b-card-group deck style="background-color:rgb(238,238,238); margin-top: 30px;">
@@ -233,12 +199,14 @@
 <script>
 // Sayfa değiştirmeyi sağlayan bus2 isimli eventbus.
 import { bus2 } from '../main'
+import Tuslular from '../Tuslular'
 
 export default {
 
     data(){
         return{
-
+            items: [],
+            error: ''
         }
     },
     // Sayfa değiştirmeyi sağlayan fonksiyon.
@@ -246,6 +214,14 @@ export default {
         sayfaDegis(){
             bus2.$emit('sayfaDegisti','tusluUrunler')
         }
+    },
+    async created() {
+    try {
+      this.items = await Tuslular.getPosts();
+    }
+    catch (err){
+      this.error = err.message;
+    }
     }
 }
 </script>
