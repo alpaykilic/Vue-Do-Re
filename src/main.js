@@ -30,7 +30,7 @@ export const totalUrun = new Vue();
 const router = new VueRouter(
   {
     routes,
-    mode: 'history'
+    mode: 'hash'
   }
 )
 
