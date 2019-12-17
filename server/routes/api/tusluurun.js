@@ -15,10 +15,10 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     const posts = await loadPostsCollection();
     await posts.insertOne({
-        id: req.body.id,
-        isim: req.body.isim,
         resim: req.body.resim,
-        fiyat: req.body.fiyat
+        isim: req.body.isim,
+        fiyat: req.body.fiyat,
+        taksit: req.body.taksit
     });
     res.status(201).send();
 });
@@ -37,8 +37,8 @@ async function loadPostsCollection() {
     const client = await mongodb.MongoClient.connect('mongodb+srv://alpay:123@vuedore-oociv.mongodb.net/test?retryWrites=true&w=majority', {
         useNewUrlParser: true
     });
-    
-    return client.db('VueDore').collection('posts');
+
+    return client.db('VueDore').collection('tusluUrun');
 }
 
 
