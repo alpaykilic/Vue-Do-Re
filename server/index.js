@@ -48,6 +48,12 @@ app.use('/api/piyanourun', piyanourun)
 const tusluurun = require('./routes/api/tusluurun')
 app.use('/api/tusluurun', tusluurun)
 
+const arama1 = require('./routes/api/arama1')
+app.use('/api/arama1', arama1)
+
+const arama2 = require('./routes/api/arama2')
+app.use('/api/arama2', arama2)
+
 const port = process.env.PORT || 5000
 
 app.listen(port, () => console.log('Server started on port ' + port))
