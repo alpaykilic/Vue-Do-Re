@@ -67,143 +67,41 @@
                                 <p>73 adet ürün bulunmaktadır</p>
                             </b-row>
                             <b-row style="height: 20%; float:right;">
-                                <b-form-select v-model="selected" :options="options" size="sm" ></b-form-select>
+                                <b-form-select v-model="selected" @change="sirala" size="sm" >
+                                    <option value="a" disabled>Sıralamak İçin Seçiniz</option>
+                                    <option value="b" >Alfabetik Sırala [A-Z]</option>
+                                    <option value="c" >Ucuzdan Pahalıya Sırala</option>
+                                </b-form-select>
                             </b-row>
                         </b-col>
                         
                     </b-row>
-                    <b-row v-show="sayfa==1" class="cards-1" style=" margin-top: 50px;"> <!-- CARDS SECTION PART I -->
-                        <b-col style="height: 455px; width: 220px; text-align:Center">
-                             <b-card @click="sayfaDegis(3)" img-src="https://www.do-re.com.tr/pearl-river-um115m5-silent-akustik-duvar-piyanosu-parlak-beyaz-2989de7c689c04c122201f39690fe6d2-5fb80917c79396a29b192af1ebc9e64b-mid-pp.jpg" img-alt="Image" img-top
+                    <b-row v-show="sayfa==1" class="cards-1" style=" margin-top: 50px;"
+                    > <!-- CARDS SECTION PART I -->
+                        <b-col style="height: 455px; width: 220px; text-align:Center" class="col-md-3"
+                        v-for="(urun,index) in urunler"
+                        v-bind:item="urun"
+                        v-bind:index="index"
+                        v-bind:key="urun.id"
+                        >
+                            <b-card @click="sayfaDegis(3)" v-bind:img-src=urun.resim img-alt="Image" img-top
                                 tag="article" style="max-width: 20rem;" class="mb-2 cardStyle">
                                 <b-card-text style="font-size:12px; font-weight:bold;">
-                                    Pearl River UM115M5 Akustik Duvar Piyanosu (Parlak Beyaz)
+                                    {{urun.isim}}
                                 </b-card-text>
                                 Nakit Fiyatı
                                 <b-card-text style="font-weight:bold;">
-                                    24,291.00 TL
+                                    {{urun.fiyat}} TL
                                 </b-card-text>     
                                 <hr>
                                 Taksitli Fiyat
                                 <br>
-                                26,990.00 TL
-                            </b-card>
-                        </b-col>
-                        <b-col style="text-align:center;">
-                            <b-card img-src="https://www.do-re.com.tr/yamaha-b1-akustik-duvar-piyanosu-siyah-krom-e4d017b080fd4c37669df602554e3779-43a2fd01a44beea56c2748413164555c-mid-pp.jpg" img-alt="Image" img-top
-                                tag="article" style="max-width: 20rem;" class="mb-2 cardStyle">
-                                <b-card-text style="font-size:12px; font-weight:bold;">
-                                    Yamaha B1 Akustik Duvar Piyanosu (Siyah Krom)
-                                </b-card-text>
-                                Nakit Fiyatı
-                                <b-card-text style="font-weight:bold;">
-                                    26,549.10 TL
-                                </b-card-text>     
-                                <hr>
-                                Taksitli Fiyat
-                                <br>
-                                29,499.00 TL            
-                            </b-card>
-                        </b-col>
-                        <b-col style="text-align:center;">
-                            <b-card img-src="https://www.do-re.com.tr/pearl-river-up118-akustik-duvar-piyanosu-maun-2427f9ef74e22c5a9cac8e92c5cd1f6c-50b53d3d910fc50e14f3973df03b2c1c-mid-pp.jpg" img-alt="Image" img-top
-                                tag="article" style="max-width: 20rem;" class="mb-2 cardStyle">
-                                <b-card-text style="font-size:12px; font-weight:bold;">
-                                    Pearl River UP118 Akustik Duvar Piyanosu (Maun)
-                                </b-card-text>
-                                Nakit Fiyatı
-                                <b-card-text style="font-weight:bold;">
-                                    16,051.50 TL
-                                </b-card-text>     
-                                <hr>
-                                Taksitli Fiyat
-                                <br>
-                                17,835.00 TL       
-                            </b-card>
-                        </b-col>
-                        <b-col style="text-align:center;">
-                            <b-card img-src="https://www.do-re.com.tr/ritmuller-up110r-akustik-duvar-piyanosu-maun-4c97d590d7dbe347025fc5e00b510b85-9ee86b0c1528541877a0e130c51e5187-mid-pp.jpg" img-alt="Image" img-top
-                                tag="article" style="max-width: 20rem;" class="mb-2 cardStyle">
-                                <b-card-text style="font-size:12px; font-weight:bold;">
-                                    Ritmüller UP110R Akustik Duvar Piyanosu (Maun)
-                                </b-card-text>
-                                Nakit Fiyatı
-                                <b-card-text style="font-weight:bold;">
-                                    16,900.20 TL
-                                </b-card-text>     
-                                <hr>
-                                Taksitli Fiyat
-                                <br>
-                                18,778.00 TL    
+                                {{urun.taksit}} TL
+                                
                             </b-card>
                         </b-col>
                     </b-row>
-                    <b-row v-show="sayfa==1" class="cards-2" style="height: 350px;"> <!-- CARDS SECTION PART II-->
-                        <b-col style="height: 455px; width: 220px; text-align:center;">
-                             <b-card img-src="https://www.do-re.com.tr/pearl-river-up118m-akustik-duvar-piyano-parlak-siyah-5a761109c9d75531b59da4f5c8ddbf8c-265139a3a7a316329066827163018362-mid-pp.jpg" img-alt="Image" img-top
-                                tag="article" style="max-width: 20rem;" class="mb-2 cardStyle">
-                                <b-card-text style="font-size:12px; font-weight:bold;">
-                                    Pearl River UP118M Akustik Duvar Piyano (Parlak Siyah)
-                                </b-card-text>
-                                Nakit Fiyatı
-                                <b-card-text style="font-weight:bold;">
-                                    16,199.10 TL
-                                </b-card-text>     
-                                <hr>
-                                Taksitli Fiyat
-                                <br>
-                                17,999.00 TL
-                            </b-card>
-                        </b-col>
-                        <b-col style="text-align:center;">
-                            <b-card img-src="https://www.do-re.com.tr/pearl-river-up115m2-akustik-duvar-piyanosu-maun-04cd69370b26c1d040218cb21c62be40-8b847d02009ad80d569f25d67f75e526-mid-pp.jpg" img-alt="Image" img-top
-                                tag="article" style="max-width: 20rem;" class="mb-2 cardStyle">
-                                <b-card-text style="font-size:12px; font-weight:bold;">
-                                    Pearl River UP115M2 Akustik Duvar Piyanosu (Maun)
-                                </b-card-text>
-                                Nakit Fiyatı
-                                <b-card-text style="font-weight:bold;">
-                                  15,099.30 TL
-                                </b-card-text>     
-                                <hr>
-                                Taksitli Fiyat
-                                <br>
-                                16,777.00 TL
-                            </b-card>
-                        </b-col>
-                        <b-col style="text-align:center;">
-                            <b-card img-src="https://www.do-re.com.tr/ritmuller-up110r-akustik-duvar-piyanosu-parlak-beyaz-be856c5a9b6a67a0f444fdac39a37577-84a216994e6129e15794aee12161cf77-mid-pp.jpg" img-alt="Image" img-top
-                                tag="article" style="max-width: 20rem;" class="mb-2 cardStyle">
-                                <b-card-text style="font-size:12px; font-weight:bold;">
-                                   Ritmüller UP110R Akustik Duvar Piyanosu (Parlak Beyaz)
-                                </b-card-text>
-                                Nakit Fiyatı
-                                <b-card-text style="font-weight:bold;">
-                                   15,099.30 TL
-                                </b-card-text>     
-                                <hr>
-                                Taksitli Fiyat
-                                <br>
-                                16,777.00 TL           
-                            </b-card>
-                        </b-col>
-                        <b-col style="text-align:center;">
-                            <b-card img-src="https://www.do-re.com.tr/ritmuller-up118r-akustik-duvar-piyanosu-parlak-beyaz-5326ff0793f4fb5a85218a9bb345435b-e34373486a8cbad81c58e614ce37e431-mid-pp.jpg" img-alt="Image" img-top
-                                tag="article" style="max-width: 20rem;" class="mb-2 cardStyle">
-                                <b-card-text style="font-size:12px; font-weight:bold;">
-                                    Ritmüller UP118R Akustik Duvar Piyanosu (Parlak Beyaz)
-                                </b-card-text>
-                                Nakit Fiyatı
-                                <b-card-text style="font-weight:bold;">
-                                    17,896.50 TL
-                                </b-card-text>     
-                                <hr>
-                                Taksitli Fiyat
-                                <br>
-                                19,885.00 TL
-                            </b-card>
-                        </b-col>
-                    </b-row>
+                    
                     <b-row v-show="sayfa==2" class="cards-3" style=" margin-top: 50px;"> <!-- CARDS SECTION PART III -->
                         <b-col style="height: 455px; width: 220px; text-align:Center">
                              <b-card img-src="https://www.do-re.com.tr/yamaha-b2-akustik-duvar-piyanosu-parlak-ceviz-a5aecad725a671be13d95b7a733beec9-bd89de26de3bf847700335a810ddbd0e-mid-pp.jpg" img-alt="Image" img-top
@@ -352,11 +250,13 @@
 <script>
 // Event bus ile breadcrumbs kısmındaki yazılara tıklayarak anasayfa ya da bir önceki piyanolar sayfasına geri dönüş sağlanıyor.
 import { bus2 } from '../main'
+import PiyanoUrun from '../PiyanoUrun'
+import AdSirala from '../AdSirala'
+import FiyatSirala from '../FiyatSirala'
 
 export default {
   name: 'Pianos',
-  props: {
-  },
+  
   data(){
       return{
           // Piyano markalarını yazdırmak için kullanılan dizi
@@ -369,17 +269,13 @@ export default {
                   { id: '06', ad: "Seiler"},          
                   { id: '07', ad: "Yamaha"}       
           ],
-          selected: null,
+          selected: 'a',
           // Sıralama yapmak için kullanılan select elemanının içeriği
-          options: [
-          { value: null, text: 'Yeniden Eskiye Sırala' },
-          { value: 'a', text: 'Eskiden Yeniye Sırala' },
-          { value: 'b', text: 'Ucuzdan Pahalıya Sırala' },
-          { value: 'c', text: 'Pahalıdan Ucuza Sırala' },
-          { value: 'd', text: 'Alfabetik Sırala [A-Z]'},
-          { value: 'e', text: 'Alfabetik Sırala [Z-A]'}
-        ],
-        sayfa:1
+        sayfa:1,
+        urunler: [],
+        error: '',
+        urunler2: [],
+        urunler3: []
       }
   },
   methods: {
@@ -401,7 +297,27 @@ export default {
 
       chgPage(id){
           this.sayfa=id
+      },
+      sirala() {
+          if(this.selected == 'b')
+          {
+              this.urunler = this.urunler2
+          }
+          else
+          {
+              this.urunler = this.urunler3
+          }
       }
+    },
+    async created() {
+    try {
+      this.urunler = await PiyanoUrun.getPosts();
+      this.urunler2 = await AdSirala.getPosts();
+      this.urunler3 = await FiyatSirala.getPosts();
+    }
+    catch (err){
+      this.error = err.message;
+    }
     }
 }
 </script>

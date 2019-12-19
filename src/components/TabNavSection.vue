@@ -28,8 +28,7 @@
                                     <b-card-text>
                                     {{post.fiyat}} TL
                                     </b-card-text>
-
-                                    <b-button class="buttons" href="" variant="primary">SEPETE EKLE</b-button>
+                                    <b-button @click="tikla(post.id)" class="buttons" href="" variant="primary">SEPETE EKLE</b-button>
                                                                 
                                 </b-card>
                                 
@@ -56,15 +55,14 @@
                                     <b-card-text>
                                     {{urunler.fiyat}} TL
                                     </b-card-text>
-
-                                    <b-button class="buttons" href="" variant="primary">SEPETE EKLE</b-button>
+                                    <b-button @click="tikla(urunler.id)" class="buttons" href="" variant="primary">SEPETE EKLE</b-button>
                                                                 
                                 </b-card>
                                 
                                 </div>
                             </div>
                         </b-tab>
-                        <b-tab title="İndirimli Ürünler" active>
+                        <b-tab title="İndirimli Ürünler" >
                             <div class="row">
                                 <div class="col-md-4"
                                 v-for="(post,index) in posts"
@@ -83,8 +81,7 @@
                                     <b-card-text>
                                     {{post.fiyat}} TL
                                     </b-card-text>
-
-                                    <b-button class="buttons" href="" variant="primary">SEPETE EKLE</b-button>
+                                    <b-button @click="tikla(post.id)" class="buttons" href="" variant="primary">SEPETE EKLE</b-button>
                                                                 
                                 </b-card>
                                 
@@ -111,8 +108,7 @@
                                     <b-card-text>
                                     {{urunler.fiyat}} TL
                                     </b-card-text>
-
-                                    <b-button class="buttons" href="" variant="primary">SEPETE EKLE</b-button>
+                                    <b-button @click="tikla(urunler.id)" class="buttons" href="" variant="primary">SEPETE EKLE</b-button>
                                                                 
                                 </b-card>
                                 
@@ -130,26 +126,26 @@
                      <div class="col-md-12">
                                     <div>
                                 <b-card
-                                    title="Yamaha B2 Akustik Duvar Piyanosu (Mat Ceviz)"
-                                    img-src="https://www.do-re.com.tr/yamaha-b2-akustik-duvar-piyanosu-mat-ceviz-f24ea2b5fb4f72d251820d8eef891827-32a48fa0eefab6ba2e718085330df396-mid-pp.jpg"
+                                    v-bind:title=this.urun2[3].isim
+                                    v-bind:img-src=this.urun2[3].resim
                                     img-alt="Image"
                                     img-top
                                     tag="article"
                                     class="mb-2"
                                 >
                                     <b-card-text>
-                                    35,922.29 TL
+                                    {{this.urun2[3].fiyat}} TL
                                     </b-card-text>
 
-                                    <b-button @click="tikla(6)"  class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
+                                    <b-button @click="tikla(9)"  class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
                                 </b-card>
                                 </div>
                                 </div>
                                  <div class="col-md-12">
                                     <div>
                                 <b-card
-                                    title="PRS Al Di Meola Signature 10 Top Pattern Regular Elektro Gitar"
-                                    img-src="https://www.do-re.com.tr/prs-al-di-meola-signature-10-top-pattern-regular-elektro-gitar-f3cb6e589ef04cf30bfea228bab68b17-a57c2841a1be4747484f74d986963f82-mid-pp.jpg"
+                                    v-bind:title=this.urun2[1].isim
+                                    v-bind:img-src=this.urun2[1].resim
                                     img-alt="Image"
                                     img-top
                                     tag="article"
@@ -157,7 +153,7 @@
                                     style="font-size: 12px;"
                                 >
                                     <b-card-text>
-                                    22,033.26 TL
+                                    {{this.urun2[1].fiyat}} TL
                                     </b-card-text>
 
                                     <b-button @click="tikla(7)" class="buttons" href="#" variant="primary">SEPETE EKLE</b-button>
@@ -206,6 +202,7 @@ export default {
             this.$bvModal.show('bv-modal-example') 
         }
     }
+    
 }
 </script>
 

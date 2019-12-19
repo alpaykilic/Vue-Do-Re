@@ -21,16 +21,15 @@
                     </div>
                     <br>
                     <br>
-                    <div style="border-bottom:1px solid rgb(196,196,196)">
-                        <b-card-group deck style="background-color:rgb(238,238,238);">
+                    <div class="row" style="border-bottom:1px solid rgb(196,196,196)">
+                        <div style="background-color:rgb(238,238,238); margin:15px"
+                        v-for="(urun,index) in items"
+                        v-bind:item="post"
+                        v-bind:index="index"
+                        v-bind:key="urun.id"
+                        >
                             
-                            <b-card 
-                            @click="sayfaDegis" class="cardBorder" v-bind:img-src=urun.resim img-alt="Image" img-top
-                            v-for="(urun,index) in items"
-                            v-bind:item="post"
-                            v-bind:index="index"
-                            v-bind:key="urun.id"
-                            >
+                            <b-card @click="sayfaDegis" class="cardBorder" v-bind:img-src=urun.resim img-alt="Image" img-top>
                             <b-card-body class="text-center">
                                 <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
                                 <br>
@@ -42,66 +41,8 @@
                                 <p style="font-size:15px;"> {{urun.miktar}} </p>
                             </b-card-body>
                             </b-card>
-                        </b-card-group>
-
-                        <b-card-group deck style="background-color:rgb(238,238,238); margin-top: 30px;">
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/10f6d7e40d95cab50badd8dc4e430ead.jpg" img-alt="Image" img-top>
-                            <b-card-body class="text-center">
-                                <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
-                                <br>
-                                <br>
-                                <p class="pStyle">
-                                    Mini Orglar
-                                </p>
-                                <br>
-                                <p style="font-size:15px;">5 Ürün</p>
-                            </b-card-body>
-                            </b-card>
-
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/a0985521a55c17ec48aaa9a5031ae631.jpg" img-alt="Image" img-top>
-                            <b-card-body class="text-center">
-                                <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
-                                <br>
-                                <br>
-                                <p class="pStyle">
-                                    Launchpad'ler
-                                </p>
-                                <br>
-                                <p style="font-size:15px;">4 Ürün</p>
-                            </b-card-body>
-                            </b-card>
-
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/2f55cec9425852400514bc0c5ac01c8f.jpg" img-alt="Image" img-top>
-                            <b-card-body class="text-center">
-                                <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
-                                <br>
-                                <br>
-                                <p class="pStyle">
-                                    Hammond Orglar
-                                </p>
-                                <br>
-                                <p style="font-size:15px;">6 Ürün</p>
-                            </b-card-body>
-                            </b-card>
-
-
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/cac3c60a6a0f622da93816c86ad1bf2b.jpg" img-alt="Image" img-top>
-                            <b-card-body class="text-center">
-                                <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
-                                <br>
-                                <br>
-                                <p class="pStyle">
-                                    Akordiyonlar
-                                </p>
-                                <br>
-                                <p style="font-size:15px;">20 Ürün</p>
-                            </b-card-body>
-                            </b-card>
-                        </b-card-group>
-                        <br>
-                        <br>
+                        </div>
                     </div>
-                        
                 </div>
             </div>
         </div>

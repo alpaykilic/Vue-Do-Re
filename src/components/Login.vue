@@ -22,10 +22,11 @@
               <b-row class="ya-da-text" style="height: 60px;padding-top:10px; border:None">
                   
               <hr style="width:180px; margin-left:0px;"> ya da
-              <hr style="width:180px; margin-right:0px"></b-row>
+              <hr style="width:180px; margin-right:0px">
+              </b-row>
               <b-row class="login-form" style="height: auto; border:None">
                       <div style="margin-left:25px;">
-                        <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+                        <b-form>
                         <b-form-group style="font-size: 16px; color: #595959; font-weight: 700; text-align:left"
                             id="input-group-1"
                             label="E-posta adresiniz:"
@@ -33,7 +34,7 @@
                         >
                             <b-form-input
                             id="input-1"
-                            v-model="form.email"
+                            v-model="mail"
                             type="email"
                             required
                             placeholder=""
@@ -41,21 +42,24 @@
                             ></b-form-input>
                         </b-form-group>
 
-                        <b-form-group id="input-group-2" label="Adınız:" label-for="input-2" style="font-size: 16px; color: #595959; font-weight: 700; text-align:left">
+                        <b-form-group id="input-group-2" label="Şifre:" label-for="input-2" style="font-size: 16px; color: #595959; font-weight: 700; text-align:left">
                             <b-form-input
-                            type="text"
+                            type="password"
                             id="input-2"
+                            v-model="pass"
                             style="background-color: rgb(246,246,246)"
                             required
                             placeholder=""
                             ></b-form-input>
+                            
                         </b-form-group>
                         <b-row style="border:none; margin-bottom:30px; margin-top:30px;">
                             <button style="text-decoration:underline; background-color:white; border:none;outline:none; color: rgb(146,146,146)">Şifremi Unuttum</button>
-                            <b-button style="margin-left:140px; height:40px; width:128px; border-radius:0px; background-color:black; outline:none; border:none; font-size:20px;" type="submit" variant="primary">Giriş Yap</b-button>
+                            <b-button style="margin-left:140px; height:40px; width:128px; border-radius:0px; background-color:black; outline:none; border:none; font-size:20px;" @click="giris" variant="primary">Giriş Yap</b-button>
                         </b-row>
                         
                         </b-form>
+                        
                     </div>
                   
               </b-row>
@@ -76,22 +80,46 @@
 <script>
 // bus2 isimli eventbus kullanılarak sayfa değişimi sağlandı.
 import { bus2 } from '../main'
+import Uye from '../Uye'
+import { loginBus } from '../main'
+
   export default {
     data() {
       return {
-        form: {
-          email: '',
-          password: '',
-          checked: []
-        },
-        show: true
+        mail: '',
+        pass: '',
+        show: true,
+        uyeler: [],
+        check: false,
+        error: 'asd'
       }
     },
     methods: {
       
       sayfaDegis(){
         bus2.$emit('sayfaDegisti','register')
+      },
+      giris(){
+        for(let i = 0; i< this.uyeler.length; i++){
+          if(this.uyeler[i].mail == this.mail){
+            if(this.uyeler[i].sifre == this.pass){
+              this.check=true
+            }
+          }
+        }
+        if(this.check == true){
+          bus2.$emit('sayfaDegisti','mainpage')
+          loginBus.$emit('girisYapildi',this.check)
+        }
       }
+    },
+    async created() {
+    try {
+      this.uyeler = await Uye.getPosts();
+    }
+    catch (err){
+      this.error = err.message;
+    }
     }
   }
 </script>

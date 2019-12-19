@@ -70,7 +70,7 @@
                     <b-container>
                         <b-row>
                             <b-col md="1"><button @click="remove(urun.id)" class="rem-but">x</button></b-col>
-                            <b-col md="2"><img v-bind:src=urun.image alt=""></b-col>
+                            <b-col md="2"><img v-bind:src=urun.resim alt=""></b-col>
                             <b-col md="3">
                                 <b-row class="urunİsim">{{ urun.isim }}</b-row>
                                 <b-row class="kargoStil"> 1-3 iş gününde kargoya verilir </b-row>
@@ -135,6 +135,7 @@
 import { urunBus } from '../main'
 import { totalUrun } from '../main'
 import EmptyBasket from './EmptyBasket.vue'
+import Products from '../Products'
 
 export default {
     components: {
@@ -177,6 +178,7 @@ export default {
                 {id:26, isim:"Yamaha YDP144R Dijital Piyano (Gül Ağacı)", image:"https://www.do-re.com.tr/yamaha-ydp144r-dijital-piyano-gul-agaci-f96c51181f04b21acb4b3e599231d595-2c6e023c9cb6046bb68b562a6b9462bf-mid-pp.jpg", birimAdetSayisi: 1, fiyat: 5849.10},
                 {id:27, isim:"Mackie Reach Pro Aktif Hoparlör(Tek)", image:"https://www.do-re.com.tr/mackie-reach-pro-aktif-hoparlor-ab18332dce93f52a9da66537e05318fb-17ded12c1cf5e7970168ff29d7d37b53-mid-pp.jpg", birimAdetSayisi: 1, fiyat: 9515.92},
             ],
+            products: [],
             topFiyat: 0,
             topUrun: 0
             
@@ -195,9 +197,9 @@ export default {
                 }
             }
             if(this.isExist!=true){
-                this.item.push(this.urunler[num])
+                this.item.push(this.products[num])
                 this.item[this.item.length-1].birimAdetSayisi = 1
-                this.topFiyat += this.urunler[num].fiyat
+                this.topFiyat += this.products[num].fiyat
                 this.guncelle()
             }
             this.isExist = false
@@ -256,10 +258,17 @@ export default {
     /*------- created component oluşturulduğundan itibaren yapılacak şeyi içerir. 
       ------- içerisinde urunBus isimli bir eventbus dinlemesi yapılıyor.
       ------- */
-    created(){
-        urunBus.$on('urunEklendi', (data) => {
-            this.clicked(data)
-        })
+    
+    async created() {
+    urunBus.$on('urunEklendi', (data) => {
+        this.clicked(data)
+    })
+    try {
+      this.products = await Products.getPosts();
+    }
+    catch (err){
+      this.error = err.message;
+    }
     }
 }
 </script>

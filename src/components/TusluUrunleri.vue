@@ -84,140 +84,37 @@
                                 <p>32 adet ürün bulunmaktadır</p>
                             </b-row>
                             <b-row style="height: 20%; float:right;">
-                                <b-form-select v-model="selected" :options="options" size="sm" ></b-form-select>
+                                <b-form-select v-model="selected" @change="sirala" size="sm" >
+                                        <option value="a" disabled>Sıralamak İçin Seçiniz</option>
+                                        <option value="b" >Alfabetik Sırala [A-Z]</option>
+                                        <option value="c" >Ucuzdan Pahalıya Sırala</option>
+                                </b-form-select>
                             </b-row>
                         </b-col>
                         
                     </b-row>
                     <b-row v-show="sayfa==1" class="cards-1" style=" margin-top: 50px;"> <!-- CARDS SECTION PART I -->
-                        <b-col style="height: 455px; width: 220px; text-align:Center">
-                             <b-card @click="sayfaDegis(3)" img-src="https://www.do-re.com.tr/yamahapsr-f51-61-tuslu-org-siyah-f46c7089ba85c99e7fab7da4e6188b78-18a6694bc49d83c852f59af55c65083a-mid-pp.jpg" img-alt="Image" img-top
+                        <b-col style="height: 455px; width: 220px; text-align:Center" class="col-md-3"
+                        v-for="(urun,index) in urunler"
+                        v-bind:item="urun"
+                        v-bind:index="index"
+                        v-bind:key="urun.id"
+                        >
+                            <b-card @click="sayfaDegis(3)" v-bind:img-src=urun.resim img-alt="Image" img-top
                                 tag="article" style="max-width: 20rem;" class="mb-2 cardStyle">
                                 <b-card-text style="font-size:12px; font-weight:bold;">
-                                    Yamaha PSR F51 61-Tuşlu Org (Siyah)
+                                    {{urun.isim}}
                                 </b-card-text>
                                 Nakit Fiyatı
                                 <b-card-text style="font-weight:bold;">
-                                    981.00 TL
+                                    {{urun.fiyat}} TL
                                 </b-card-text>     
                                 <hr>
                                 Taksitli Fiyat
                                 <br>
-                                1,090.00 TL
-                            </b-card>
-                        </b-col>
-                        <b-col style="text-align:center;">
-                            <b-card img-src="https://www.do-re.com.tr/casio-ct-x700-61-tuslu-org-c8cb2c42fab77ea8259e6f5f0c839442-a2da3987aa7918fa5bb7870d6c6e1f12-mid-pp.jpg" img-alt="Image" img-top
-                                tag="article" style="max-width: 20rem;" class="mb-2 cardStyle">
-                                <b-card-text style="font-size:12px; font-weight:bold;">
-                                    Casio CT-X700 61 Tuşlu Org
-                                </b-card-text>
-                                Nakit Fiyatı
-                                <b-card-text style="font-weight:bold;">
-                                    999.00 TL
-                                </b-card-text>     
-                                <hr>
-                                Taksitli Fiyat
-                                <br>
-                                1,110.00 TL       
-                            </b-card>
-                        </b-col>
-                        <b-col style="text-align:center;">
-                            <b-card img-src="https://www.do-re.com.tr/casio-ct-x3000-61-tuslu-org-0f699d04fccd5bbc9514b493873c443d-172bc881e036c690f77d5703656b37fc-mid-pp.jpg" img-alt="Image" img-top
-                                tag="article" style="max-width: 20rem;" class="mb-2 cardStyle">
-                                <b-card-text style="font-size:12px; font-weight:bold;">
-                                    Casio CT-X3000 61 Tuşlu Org
-                                </b-card-text>
-                                Nakit Fiyatı
-                                <b-card-text style="font-weight:bold;">
-                                    2,461.50 TL
-                                </b-card-text>     
-                                <hr>
-                                Taksitli Fiyat
-                                <br>
-                                2,735.00 TL   
-                            </b-card>
-                        </b-col>
-                        <b-col style="text-align:center;">
-                            <b-card img-src="https://www.do-re.com.tr/yamaha-psr-e263-61-tuslu-org-f52632afc1999f06d0211762d20913a2-660963dd56a6d4cdf84b3dc6a4db45c1-mid-pp.jpg" img-alt="Image" img-top
-                                tag="article" style="max-width: 20rem;" class="mb-2 cardStyle">
-                                <b-card-text style="font-size:12px; font-weight:bold;">
-                                    Yamaha PSR E263 61 Tuşlu Org
-                                </b-card-text>
-                                Nakit Fiyatı
-                                <b-card-text style="font-weight:bold;">
-                                    1,080.00 TL
-                                </b-card-text>     
-                                <hr>
-                                Taksitli Fiyat
-                                <br>
-                                1,200.00 TL
-                            </b-card>
-                        </b-col>
-                    </b-row>
-                    <b-row v-show="sayfa==1" class="cards-2" style="height: 350px;"> <!-- CARDS SECTION PART II-->
-                        <b-col style="height: 455px; width: 220px; text-align:center;">
-                             <b-card img-src="https://www.do-re.com.tr/yamaha-psr-e363-61-tuslu-dijital-org-5d020ada2e84e7ea7675059385dbdd92-bf03820e5477ec70994b382d7a2c225b-mid-pp.jpg" img-alt="Image" img-top
-                                tag="article" style="max-width: 20rem;" class="mb-2 cardStyle">
-                                <b-card-text style="font-size:12px; font-weight:bold;">
-                                    Yamaha PSR E363 61 Tuşlu Dijital Org
-                                </b-card-text>
-                                Nakit Fiyatı
-                                <b-card-text style="font-weight:bold;">
-                                    1,349.10 TL
-                                </b-card-text>     
-                                <hr>
-                                Taksitli Fiyat
-                                <br>
-                                1,499.00 TL
-                            </b-card>
-                        </b-col>
-                        <b-col style="text-align:center;">
-                            <b-card img-src="https://www.do-re.com.tr/casio-ctk-2500-61-tuslu-org-aadd8d42397ccfc1eb7d53acd0ac8d69-57c9cca41b61f557d028c5c71d4bd320-mid-pp.jpg" img-alt="Image" img-top
-                                tag="article" style="max-width: 20rem;" class="mb-2 cardStyle">
-                                <b-card-text style="font-size:12px; font-weight:bold;">
-                                    Casio CTK 2500 61 Tuşlu Org
-                                </b-card-text>
-                                Nakit Fiyatı
-                                <b-card-text style="font-weight:bold;">
-                                  868.50 TL
-                                </b-card-text>     
-                                <hr>
-                                Taksitli Fiyat
-                                <br>
-                                965.00 TL
-                            </b-card>
-                        </b-col>
-                        <b-col style="text-align:center;">
-                            <b-card img-src="https://www.do-re.com.tr/casio-ctk-1500-61-tuslu-org-b935518e070511246bceb222b0848b3f-71721cedd1e16293dd3fe61d7cae9b5f-mid-pp.jpg" img-alt="Image" img-top
-                                tag="article" style="max-width: 20rem;" class="mb-2 cardStyle">
-                                <b-card-text style="font-size:12px; font-weight:bold;">
-                                   Casio CTK 1500 61 Tuşlu Org
-                                </b-card-text>
-                                Nakit Fiyatı
-                                <b-card-text style="font-weight:bold;">
-                                   652.50 TL
-                                </b-card-text>     
-                                <hr>
-                                Taksitli Fiyat
-                                <br>
-                                <span class="price installed">725.00 TL</span>       
-                            </b-card>
-                        </b-col>
-                        <b-col style="text-align:center;">
-                            <b-card img-src="https://www.do-re.com.tr/casio-ctk-3400-61-tuslu-org-644bbb6c979b79e061f155553fea9c1f-77482a87028b7464567a70fa754bd4f6-mid-pp.jpg" img-alt="Image" img-top
-                                tag="article" style="max-width: 20rem;" class="mb-2 cardStyle">
-                                <b-card-text style="font-size:12px; font-weight:bold;">
-                                    Casio CTK 3400 61 Tuşlu Org
-                                </b-card-text>
-                                Nakit Fiyatı
-                                <b-card-text style="font-weight:bold;">
-                                    936.00 TL
-                                </b-card-text>     
-                                <hr>
-                                Taksitli Fiyat
-                                <br>
-                                1,040.00 TL
+                                {{urun.taksit}} TL
+                                
+                                
                             </b-card>
                         </b-col>
                     </b-row>
@@ -369,11 +266,13 @@
 <script>
 // Sayfa değiştirmeyi sağlayan bus2 isimli eventbus.
 import { bus2 } from '../main'
+import TusluUrun from '../TusluUrun'
+import FiyatSirala2 from '../FiyatSirala2'
+import AdSirala2 from '../AdSirala2'
 
 export default {
   name: 'Pianos',
-  props: {
-  },
+  
   data(){
       return{
           // Sayfada sağ tarafta bulunan markalar ve tuşlu sayıları listelerini
@@ -389,17 +288,15 @@ export default {
                   { id: '02', ad: "61 Tuşlu (4)"},          
                   { id: '03', ad: "76 Tuşlu (2)"},          
           ],
-          selected: null,
+        
           // Sıralama select elemanı içeriğine sahip dizi
-          options: [
-          { value: null, text: 'Yeniden Eskiye Sırala' },
-          { value: 'a', text: 'Eskiden Yeniye Sırala' },
-          { value: 'b', text: 'Ucuzdan Pahalıya Sırala' },
-          { value: 'c', text: 'Pahalıdan Ucuza Sırala' },
-          { value: 'd', text: 'Alfabetik Sırala [A-Z]'},
-          { value: 'e', text: 'Alfabetik Sırala [Z-A]'}
-        ],
-        sayfa:1
+          
+        sayfa:1,
+        urunler: [],
+        urunler2: [],
+        urunler3: [],
+        error: '',
+        selected: 'a'
       }
   },
   methods: {
@@ -421,7 +318,29 @@ export default {
 
       chgPage(id){
           this.sayfa=id
+      },
+
+      sirala() {
+          if(this.selected == 'b')
+          {
+              this.urunler = this.urunler3
+          }
+          else
+          {
+              this.urunler = this.urunler2
+          }
       }
+    },
+    async created() {
+        try {
+        this.urunler = await TusluUrun.getPosts();
+        this.urunler2 = await FiyatSirala2.getPosts();
+        this.urunler3 = await AdSirala2.getPosts();
+
+        }
+        catch (err){
+        this.error = err.message;
+        }
     }
 }
 </script>

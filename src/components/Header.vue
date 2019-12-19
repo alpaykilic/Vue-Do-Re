@@ -26,21 +26,28 @@
             <button class="dorebuton" style="outline: none;" @click="sayfaDegis2"></button>
         </div>
         <div class="column middle" style="background-color:transparent;">
-            <form class="example" action="./action_page" style="margin-right: auto;margin-top:40px;max-width:400px">
-                <input type="text" placeholder="Aramak istediğiniz ürünü yazın" name="search2"
-                    style=" border: 2px solid #f1f1f1;">
-                <button style="margin:auto; max-width:100px; outline:none;"> Ara</button>
-            </form>
+            <div class="example" style="margin-right: auto;margin-top:40px;max-width:400px">
+                <input v-model="ara" type="text" placeholder="Aramak istediğiniz ürünü yazın" name="search2"
+                    style=" border: 2px solid #f1f1f1; height:40px; width:300px; padding-left:15px;">
+                <button @click="sayfaDegis5" style="margin:auto; width:80px; height:40px; background-color:black; color:white; border:none; outline:none;"> Ara</button>
+            </div>
 
         </div>
         <div class="column right" style="background-color:transparent;">
-            <div class="nologin">
+            <div class="nologin" v-show="!check">
                 <div style="float: right;margin-top: 30px">
                     <button @click="sayfaDegis3"
                         style="color: rgb(96, 95, 95); font-size: 15px; font-weight: 600; text-decoration:none; border:none; outline:none; background-color:white">GİRİŞ YAPIN</button>
                     YA DA
                     <button @click="sayfaDegis4"
                         style="color: rgb(96, 95, 95); font-size: 15px; font-weight: 600; text-decoration:none; border:none; outline:none; background-color:White">ÜYE OLUN</button>
+                </div>
+            </div>
+            <div class="nologin" v-show="check">
+                <div style="float: right;margin-top: 25px">
+                    
+                    <button 
+                        style="color: rgb(96, 95, 95); font-size: 15px; font-weight: 600; text-decoration:none; border:none; outline:none; background-color:White">PROFİLİM</button>
                 </div>
             </div>
             <div style="float: right;">
@@ -67,19 +74,26 @@
 // event bus u import ediyoruz.
 import { bus2 } from '../main'
 import { totalUrun } from '../main'
+import { loginBus } from '../main'
+import { aramaBus } from '../main'
 
 export default {
     
     data(){
         return{
             msg: 0,
-            sayfa: ''
+            sayfa: '',
+            check: false,
+            ara: ''
         }
     },
    // burada tanımlanan msg değişkeni tabnavsection componentinden gelen veriye eşitleniyor.
     created(){
         totalUrun.$on('guncellendi',(data) => {
             this.msg = data
+        }),
+        loginBus.$on('girisYapildi', (data) => {
+            this.check = data
         })
     },
 
@@ -107,6 +121,11 @@ export default {
         sayfaDegis4(){
             this.sayfa = 'register'
             bus2.$emit('sayfaDegisti',this.sayfa)
+        },
+        sayfaDegis5(){
+            this.sayfa = 'arama'
+            bus2.$emit('sayfaDegisti',this.sayfa)
+            aramaBus.$emit('arandi', this.ara)
         }
     }
 

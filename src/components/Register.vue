@@ -29,6 +29,7 @@
                             <b-form-input
                             type="text"
                             id="input-2"
+                            v-model="ad"
                             style="width:390px; background-color: rgb(246,246,246)"
                             required
                             placeholder=""
@@ -38,6 +39,7 @@
                             <b-form-input
                             type="text"
                             id="input-2"
+                            v-model="soyad"
                             style="width:390px; background-color: rgb(246,246,246)"
                             required
                             placeholder=""
@@ -50,7 +52,7 @@
                         >
                             <b-form-input
                             id="input-1"
-                            v-model="form.email"
+                            v-model="email"
                             type="email"
                             required
                             placeholder=""
@@ -62,6 +64,7 @@
                             <b-form-input
                             type="password"
                             id="input-2"
+                            v-model="password"
                             style="width:390px; background-color: rgb(246,246,246)"
                             required
                             placeholder=""
@@ -77,24 +80,24 @@
                             ></b-form-input>
                         </b-form-group>
                         <b-form-group id="input-group-4">
-                            <b-form-checkbox-group v-model="form.checked" id="checkboxes-4">
+                            <b-form-checkbox-group id="checkboxes-4">
                             <b-form-checkbox style="color:rgb(146,146,146)" value="me">Tarafınızdan gönderilecek bilgilendirme e-postalarını almak istiyorum.</b-form-checkbox>
                             </b-form-checkbox-group>
                         </b-form-group>
                         <b-form-group id="input-group-4">
-                            <b-form-checkbox-group v-model="form.checked" id="checkboxes-4">
+                            <b-form-checkbox-group id="checkboxes-4">
                             <b-form-checkbox style="color:rgb(146,146,146)" value="me">Tarafınızdan gönderilecek bilgilendirme SMS'lerini almak istiyorum.</b-form-checkbox>
                             </b-form-checkbox-group>
                         </b-form-group>
                         <b-form-group id="input-group-4" style=" text-align:left">
-                            <b-form-checkbox-group v-model="form.checked" id="checkboxes-4">
+                            <b-form-checkbox-group id="checkboxes-4">
                             <b-form-checkbox style="color:rgb(146,146,146)" value="me">Üyelik Sözleşmesi'ni okudum ve onaylıyorum.</b-form-checkbox>
                             </b-form-checkbox-group>
                         </b-form-group>
 
                         <b-row style="border:none; margin-bottom:30px; margin-top:30px;">
                             
-                            <b-button style="margin-left:280px;height:40px; width:128px; border-radius:0px; background-color:black; outline:none; border:none; font-size:20px;" type="submit" variant="primary">Üye Ol</b-button>
+                            <b-button style="margin-left:280px;height:40px; width:128px; border-radius:0px; background-color:black; outline:none; border:none; font-size:20px;" @click="Ekle" variant="primary">Üye Ol</b-button>
                         </b-row>
                         
                         </b-form>
@@ -118,21 +121,44 @@
 <script>
 // Eventbus yapısı kullanılarak sayfalar arası geçiş yapıldı.
 import { bus2 } from '../main'
+import Uye from '../Uye'
+
   export default {
     data() {
       return {
-        form: {
-          email: '',
-          password: '',
-          checked: []
-        },
-        show: true
+        ad: '',
+        soyad: '',
+        email: 'asd',
+        password: '',
+        show: true,
+        uyeler: [],
+        check: false
       }
     },
     methods: {
       sayfaDegis(){
         bus2.$emit('sayfaDegisti','login')
+      },
+      async Ekle(){
+        for(let i = 0; i< this.uyeler.length; i++){
+          if(this.uyeler[i].mail == this.email){
+            this.check=true
+          }
+        }
+
+        if(this.check != true && this.ad != '' && this.soyad != '' && this.email != '' && this.password != '') {
+          await Uye.insertPost(this.ad,this.soyad,this.email,this.password)
+        }
+        this.check = false
       }
+    },
+    async created() {
+    try {
+      this.uyeler = await Uye.getPosts();
+    }
+    catch (err){
+      this.error = err.message;
+    }
     }
   }
 </script>

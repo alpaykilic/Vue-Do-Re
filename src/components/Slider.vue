@@ -94,74 +94,23 @@
 
       <!-- Slide with blank fluid image to maintain slide aspect ratio -->
       
-      <b-carousel-slide img-blank img-alt="Blank image">
-        
-        <img style="width: 150px; height: 150px;" src="https://www.do-re.com.tr/yamaha-yfl212-yan-flut-cc87a63217707a1cc654b406e8b3af2e-3d7919624f71a9f435778564bbdffb57-mid-pp.jpg" />
-        
+      <b-carousel-slide img-blank img-alt="Blank image"
+      v-for="(urun,index) in uruns"
+      v-bind:item="urun"
+      v-bind:index="index"
+      v-bind:key="urun.id"
+      >
+        <img style="width: 150px; height: 150px;" v-bind:src=urun.resim />
         <p class="yazi" style="padding-top: 5px;">
-          Yamaha YFL212 Yan Flüt
-        </p>
-        <p class="yazi2"  style="padding-top: 5px; text-decoration: line-through; color: grey;">
-          5,406.87 TL
-        </p>
-        <p class="yazi" style="padding-top: 0px; font-size: 18px;">
-          3,799.80 TL
+          {{urun.isim}}
         </p>
 
-        <button @click="tikla(8)" class="buttons">SEPETE EKLE</button>
+        <p class="yazi" style="padding-top: 0px; font-size: 18px;">
+          {{urun.fiyat}} TL
+        </p>
+        <button @click="tikla(urun.id)" class="buttons">SEPETE EKLE</button>
       </b-carousel-slide>
 
-      <b-carousel-slide img-blank img-alt="Blank image">
-        
-        <img style="width: 150px; height: 150px;" src="https://www.do-re.com.tr/epiphone-pro-1-klasik-gitar-b1a38435070a172f8bc294adbc7a6d59-30b46357c660c8059cb05b7c994919f0-mid-pp.jpg" />
-        
-        <p class="yazi" style="padding-top: 5px;">
-          Epiphone Pro-1 Klasik Gitar
-        </p>
-        <p class="yazi2"  style="padding-top: 5px; text-decoration: line-through; color: grey;">
-          890.00 TL
-        </p>
-        <p class="yazi" style="padding-top: 0px; font-size: 18px;">
-          700.20 TL
-        </p>
-
-        <button @click="tikla(9)" class="buttons">SEPETE EKLE</button>
-      </b-carousel-slide>
-
-      <b-carousel-slide img-blank img-alt="Blank image">
-        
-        <img style="width: 150px; height: 150px;" src="https://www.do-re.com.tr/rosler-rs3a-keman-4-4-56727db9a69f8817201ccdd51c400ad9-e2680e7692750f4ad284f08097eaef34-mid-pp.jpg" />
-        
-        <p class="yazi" style="padding-top: 5px;">
-          Rösler RS3A Keman (4/4)
-        </p>
-        <p class="yazi2"  style="padding-top: 5px; text-decoration: line-through; color: grey;">
-          1,299.00 TL
-        </p>
-        <p class="yazi" style="padding-top: 0px; font-size: 18px;">
-          990.00 TL
-        </p>
-
-        <button @click="tikla(10)" class="buttons">SEPETE EKLE</button>
-      </b-carousel-slide>
-
-      <b-carousel-slide img-blank img-alt="Blank image">
-        
-        <img style="width: 150px; height: 150px;" src="https://www.do-re.com.tr/casio-ap-260bk-celviano-dijital-piyano-mat-siyah-026ba3e2991b906106d454b87202fe31-3f87b36d8bca35fd63daee2950c001ea-mid-pp.jpg" />
-        
-        <p class="yazi" style="padding-top: 5px;">
-          Casio AP-260BK Celviano Dijital Piyano (Mat Siyah)
-        </p>
-        <p class="yazi2"  style="padding-top: 5px; text-decoration: line-through; color: grey;">
-          4,900.00 TL
-        </p>
-        <p class="yazi" style="padding-top: 0px; font-size: 18px;">
-          3,550.00 TL
-        </p>
-
-        <button @click="tikla(11)" class="buttons">SEPETE EKLE</button>
-      </b-carousel-slide>
-     
     </b-carousel>
 
   </div>
@@ -182,12 +131,14 @@
 import Countdown from 'vuejs-countdown'
 import { urunBus } from '../main'
 import ImageSlide from '../ImageSlide'
+import Urun2 from '../Urun2'
 
 export default {
   components: { Countdown },
   data(){
     return{
         images: [],
+        uruns: [],
         error: '',
         resim: ''
     }
@@ -202,6 +153,7 @@ export default {
   async created() {
     try {
       this.images = await ImageSlide.getPosts();
+      this.uruns = await Urun2.getPosts();
     }
     catch (err){
       this.error = err.message;
@@ -244,7 +196,6 @@ export default {
 .yazi2{
   color: grey;
   font-size: 14px;
-  text-decoration: line-through;
 }
 
 .buttons{

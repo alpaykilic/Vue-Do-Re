@@ -20,14 +20,15 @@
                     </div>
                     <br>
                     <br>
-                    <div style="border-bottom:1px solid rgb(196,196,196)">
-                        <b-card-group deck style="background-color:rgb(238,238,238);">
-                            
-                            <b-card @click="sayfaDegis" class="cardBorder" v-bind:img-src=urun.resim img-alt="Image" img-top
-                            v-for="(urun,index) in items"
+                    <div class="row" style="border-bottom:1px solid rgb(196,196,196)">
+                        <div style="background-color:rgb(238,238,238); margin: 15px"
+                        v-for="(urun,index) in items"
                             v-bind:item="post"
                             v-bind:index="index"
-                            v-bind:key="urun.id"
+                            v-bind:key="urun.id">
+                            
+                            <b-card @click="sayfaDegis" class="cardBorder" v-bind:img-src=urun.resim img-alt="Image" img-top
+                            
                             >
                             <b-card-body class="text-center">
                                 <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
@@ -40,66 +41,8 @@
                                 <p style="font-size:15px;"> {{urun.miktar}} </p>
                             </b-card-body>
                             </b-card>
-                        </b-card-group>
-
-                        <b-card-group deck style="background-color:rgb(238,238,238); margin-top: 30px;">
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/2362b3a1eee8000301f872c2a3fa44d1.jpg" img-alt="Image" img-top>
-                            <b-card-body class="text-center">
-                                <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
-                                <br>
-                                <br>
-                                <p class="pStyle">
-                                    Dijital Taşınabilir Piyano
-                                </p>
-                                <br>
-                                <p style="font-size:15px;">25 Ürün</p>
-                            </b-card-body>
-                            </b-card>
-
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/d4a0b0e3c01707a2d1dbfb9134df1fb6.jpg" img-alt="Image" img-top>
-                            <b-card-body class="text-center">
-                                <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
-                                <br>
-                                <br>
-                                <p class="pStyle">
-                                    Akustik Silent Piyanolar
-                                </p>
-                                <br>
-                                <p style="font-size:15px;">27 Ürün</p>
-                            </b-card-body>
-                            </b-card>
-
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/c11f581f63631261ace14142b8dd0112.jpg" img-alt="Image" img-top>
-                            <b-card-body class="text-center">
-                                <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
-                                <br>
-                                <br>
-                                <p class="pStyle">
-                                    Akustik Disklavier Piyano
-                                </p>
-                                <br>
-                                <p style="font-size:15px;">7 Ürün</p>
-                            </b-card-body>
-                            </b-card>
-
-
-                            <b-card class="cardBorder" img-src="https://data.do-re.com.tr/ProductCategoryPhoto/22c2d71730090de5b173e18274a17f22.jpg" img-alt="Image" img-top>
-                            <b-card-body class="text-center">
-                                <div style="border-top: 2px solid rgb(196,196,196); width:40px; margin-left:auto; margin-right:auto;"></div>
-                                <br>
-                                <br>
-                                <p class="pStyle">
-                                    Akustik Duvar Piyanoları
-                                </p>
-                                <br>
-                                <p style="font-size:15px;">51 Ürün</p>
-                            </b-card-body>
-                            </b-card>
-                        </b-card-group>
-                        <br>
-                        <br>
+                        </div>
                     </div>
-                        
                 </div>
             </div>
         </div>
