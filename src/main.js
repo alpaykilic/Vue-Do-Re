@@ -26,6 +26,8 @@ export const bus = new Vue();  //event bus yapısı ile componentler arasında d
 export const bus2 = new Vue();
 export const urunBus = new Vue();
 export const totalUrun = new Vue();
+export const loginBus = new Vue();
+export const aramaBus = new Vue();
 
 const router = new VueRouter(
   {

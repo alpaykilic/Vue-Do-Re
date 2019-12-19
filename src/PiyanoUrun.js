@@ -1,9 +1,9 @@
 import Axios from 'axios'
 
-const url = 'http://localhost:5000/api/posts/';
+const url = 'http://localhost:5000/api/piyanourun/';
 
 
-class PostService {
+class PiyanoUrun {
     // Get Post
     static getPosts() {
         return new Promise(async (resolve, reject) => {
@@ -23,12 +23,12 @@ class PostService {
         });
     }
     // Create Post
-    static insertPost(id,isim,resim,fiyat){
+    static insertPost(resim,isim,fiyat,taksit){
         return Axios.post(url, {
-            id,
-            isim,
             resim,
-            fiyat
+            isim,
+            fiyat,
+            taksit
         });
     }
 
@@ -36,7 +36,8 @@ class PostService {
     static deletePost(id) {
         return Axios.delete(url+id);
     }
+
 }
 
 
-export default PostService;
+export default PiyanoUrun;

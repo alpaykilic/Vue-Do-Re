@@ -1,9 +1,9 @@
 import Axios from 'axios'
 
-const url = 'http://localhost:5000/api/posts/';
+const url = 'http://localhost:5000/api/arama1/';
 
 
-class PostService {
+class Arama1 {
     // Get Post
     static getPosts() {
         return new Promise(async (resolve, reject) => {
@@ -23,12 +23,14 @@ class PostService {
         });
     }
     // Create Post
-    static insertPost(id,isim,resim,fiyat){
+    static insertPost(id,isim,resim,fiyat,adet,tür){
         return Axios.post(url, {
             id,
             isim,
             resim,
-            fiyat
+            fiyat,
+            adet,
+            tür
         });
     }
 
@@ -36,7 +38,8 @@ class PostService {
     static deletePost(id) {
         return Axios.delete(url+id);
     }
+
 }
 
 
-export default PostService;
+export default Arama1;

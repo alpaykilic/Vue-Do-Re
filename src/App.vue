@@ -40,8 +40,8 @@
     <div v-show="this.component == 'urun2'">
       <Urun2 />
     </div>
-    <div>
-      <HelloWorld />
+    <div v-show="this.component == 'arama'">
+      <Arama />
     </div>
     
     <!--<router-view></router-view> -->
@@ -80,7 +80,7 @@ import Urun1 from'./components/Urun1.vue'
 import Urun2 from'./components/Urun2.vue'
 import Login from'./components/Login.vue'
 import Register from'./components/Register.vue'
-import HelloWorld from'./components/HelloWorld.vue'
+import Arama from'./components/Arama.vue'
 
 export default {
   name: 'app',
@@ -108,7 +108,7 @@ export default {
     Urun2,
     Login,
     Register,
-    HelloWorld
+    Arama
   },
 
   methods:{
